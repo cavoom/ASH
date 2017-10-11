@@ -1,0 +1,11 @@
+{
+  "name": "ash",
+  "version": "1.0.0",
+  "description": "ASH Alexa Skill for 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
