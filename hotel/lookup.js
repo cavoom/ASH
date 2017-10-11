@@ -1,4 +1,4 @@
-var hotels = require('./convertcsv.js');
+var hotels = require('./hotels.js');
 //var object = require('./hotelObject.js');
 
 var i = 0;
