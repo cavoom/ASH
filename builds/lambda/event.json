@@ -21,7 +21,7 @@
       },
       "name": "HelloIntent"
     },
-    "type": "LaunchRequest",
+    "type": "IntentRequest",
     "requestId": "request5678"
   }
 }

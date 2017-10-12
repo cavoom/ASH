@@ -21,6 +21,7 @@ exports.handler = function(event,context) {
     } else if(request.type === "IntentRequest") {
         handleHelloIntent(request, context)
 
+
     }else if (request.intent.name === "QuoteIntent"){
         handleQuoteIntent(request,context,session);
     
@@ -75,10 +76,9 @@ function buildResponse(options) {
 
 function handleLaunchRequest(context) {
     let options = {};
-        options.speechText = "Welcome to the greetings skill. Using our skill, you can greet your guests. Just say the name of your guest.";
-        options.repromptText = "Are you there? You can say, hello to John.";
+        options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, when\'s the general session? ... Now, what can I help you with?";
+        options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
-
         context.succeed(buildResponse(options));
 }
 
