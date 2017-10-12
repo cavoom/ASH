@@ -19,21 +19,22 @@ exports.handler = function(event,context) {
         handleLaunchRequest(context);
 
     } else if(request.type === "IntentRequest") {
-        handleHelloIntent(request, context)
+        
+        if(request.intent.name == "RecipeIntent"){
+                handleRequestIntent(request, context)
 
 
-    }else if (request.intent.name === "QuoteIntent"){
-        handleQuoteIntent(request,context,session);
-    
-    // STOP INTENT and CANCEL INTENT
-   } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
+        } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
                 options.speechText = "Goodbye";
                 options.repromptText = "";
                 options.endSession = true;
                 //options.attributes = session;
                 context.succeed(buildResponse(options));
 
-    } else if (request.type === "SessionEndRequest") {
+        } 
+
+    }
+    else if (request.type === "SessionEndRequest") {
 
 
     } else {
@@ -47,6 +48,7 @@ exports.handler = function(event,context) {
 }
 }
 
+// *********************************************************************
 function buildResponse(options) {
 
     var response = {
@@ -74,6 +76,8 @@ function buildResponse(options) {
     return response;
 }
 
+// *********************************************************************
+
 function handleLaunchRequest(context) {
     let options = {};
         options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, when\'s the general session? ... Now, what can I help you with?";
@@ -82,36 +86,25 @@ function handleLaunchRequest(context) {
         context.succeed(buildResponse(options));
 }
 
-function handleHelloIntent(request, context) {
+
+// **********************************************************************
+
+function handleRequestIntent(request, context) {
             let options = {};
-
-        if (request.intent.name == "HelloIntent") {
             
-            let name = request.intent.slots.FirstName.value;
-
-            options.speechText = "Hello " +name+". ";
+            let item = request.intent.slots.Item.value;
+            
+            // convert ITEM to lowercase?
+            // if ITEM exists in ./recipe then ... 
+            options.speechText = "Hello " +item+". ";
             //options.speechText +=getWish();
             // nothing left to do now, so end the session
             options.endSession = false;
 
             context.succeed(buildResponse(options));
-        }
+
+            // if item does not exist ... 
+            // options.speechText = "I don't know the answer to your question";
+        
 
 }
-
-function handleQuoteIntent(request, context, session) {
-            let options = {};
-            options.session = session;
-            getQuote(function(quote,err){
-                if(err){
-                    context.fail(err);
-                }
-
-            })
-            options.speechText = quote;
-            options.speechText +="Do you want to listen to one more quote?";
-            options.reprompText = "You can say yes or more.";
-            options.session.attributes.quoteIntent = true;
-            options.endSession = false;
-            context.succeed(buildResponse(options));
-        }

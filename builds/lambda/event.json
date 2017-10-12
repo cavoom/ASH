@@ -14,12 +14,12 @@
   "request": {
     "intent": {
       "slots": {
-        "FirstName": {
-          "name": "FirstName",
-          "value": "JamalOKer"
+        "Item": {
+          "name": "Item",
+          "value": "bathroom"
         }
       },
-      "name": "HelloIntent"
+      "name": "RecipeIntent"
     },
     "type": "IntentRequest",
     "requestId": "request5678"
