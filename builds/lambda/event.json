@@ -16,10 +16,10 @@
       "slots": {
         "Item": {
           "name": "Item",
-          "value": "ash booth"
+          "value": "Aloft Atlanta Downtown"
         }
       },
-      "name": "AMAZON.StopIntent"
+      "name": "HotelIntent"
     },
     "type": "IntentRequest",
     "requestId": "request5678"

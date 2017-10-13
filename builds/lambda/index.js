@@ -1,5 +1,6 @@
 'use strict';
 var library = require('./recipe.js');
+var hotels = require('../../hotel/hotels.js');
 
 exports.handler = function(event,context) {
 
@@ -19,6 +20,9 @@ exports.handler = function(event,context) {
         if(request.intent.name == "RecipeIntent"){
                 handleRequestIntent(request, context)
 
+        } else if (request.intent.name === "HotelIntent"){
+
+                handleHotelIntent(request, context);
 
         } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
                 handleStopIntent(context);
@@ -43,7 +47,7 @@ exports.handler = function(event,context) {
 
 // *********************************************************************
 function buildResponse(options) {
-    console.log('made it to buidresponse');
+    //console.log('made it to buidresponse');
     var response = {
         version: "1.0",
         response: {
@@ -113,4 +117,28 @@ function handleRequestIntent(request, context) {
             // options.speechText = "I don't know the answer to your question";
         
 
+}
+
+// **********************************************************************
+
+function handleHotelIntent(request, context) {
+            let options = {};
+            // this will change depending upon how setup in the amazon portal
+            let item = request.intent.slots.Item.value;
+           
+            // This is the area where we need to loop through everything
+            // See hotel/lookup.js
+            //console.log(library[item]);
+            
+            // convert ITEM to lowercase?
+            // if ITEM exists in ./recipe then ... 
+            options.speechText = hotels[2].boardingLocation;
+            //options.speechText +=getWish();
+            // nothing left to do now, so end the session
+            options.endSession = false;
+
+            context.succeed(buildResponse(options));
+
+            // if item does not exist ... 
+            // options.speechText = "I don't know the answer to your question";
 }
