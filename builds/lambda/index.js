@@ -1,9 +1,5 @@
-// Good practice to use strict mode
-// let only works in strict mode
 'use strict';
-
-// this is for Quote API function
-//var http = require('http');
+var library = require('./recipe.js');
 
 exports.handler = function(event,context) {
 
@@ -93,10 +89,12 @@ function handleRequestIntent(request, context) {
             let options = {};
             
             let item = request.intent.slots.Item.value;
+
+            //console.log(library[item]);
             
             // convert ITEM to lowercase?
             // if ITEM exists in ./recipe then ... 
-            options.speechText = "Hello " +item+". ";
+            options.speechText = library[item];
             //options.speechText +=getWish();
             // nothing left to do now, so end the session
             options.endSession = false;
