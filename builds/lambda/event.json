@@ -19,7 +19,7 @@
           "value": "ash booth"
         }
       },
-      "name": "RecipeIntent"
+      "name": "AMAZON.StopIntent"
     },
     "type": "IntentRequest",
     "requestId": "request5678"

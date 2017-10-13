@@ -21,11 +21,8 @@ exports.handler = function(event,context) {
 
 
         } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
-                options.speechText = "Goodbye";
-                options.repromptText = "";
-                options.endSession = true;
-                //options.attributes = session;
-                context.succeed(buildResponse(options));
+                handleStopIntent(context);
+
 
         } 
 
@@ -46,7 +43,7 @@ exports.handler = function(event,context) {
 
 // *********************************************************************
 function buildResponse(options) {
-
+    console.log('made it to buidresponse');
     var response = {
         version: "1.0",
         response: {
@@ -80,6 +77,17 @@ function handleLaunchRequest(context) {
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
         context.succeed(buildResponse(options));
+}
+
+
+
+function handleStopIntent(context){
+            let options = {};    
+                options.speechText = "Goodbye";
+                options.repromptText = "";
+                options.endSession = true;
+                //options.attributes = session;
+                context.succeed(buildResponse(options));
 }
 
 
