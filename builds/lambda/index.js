@@ -106,12 +106,24 @@ function handleRequestIntent(request, context) {
             
             // convert ITEM to lowercase?
             // if ITEM exists in ./recipe then ... 
+            if(library[item]){
             options.speechText = library[item];
             //options.speechText +=getWish();
             // nothing left to do now, so end the session
             options.endSession = false;
 
             context.succeed(buildResponse(options));
+        } else {
+            
+            options.speechText = "Sorry. I couldn't find "+item+ " in our list of questions.";
+            //options.speechText +=getWish();
+            // nothing left to do now, so end the session
+            options.endSession = false;
+
+            context.succeed(buildResponse(options));
+
+
+            }
 
             // if item does not exist ... 
             // options.speechText = "I don't know the answer to your question";

@@ -19,7 +19,7 @@
           "value": "Aloft Atlanta Downtown"
         }
       },
-      "name": "HotelIntent"
+      "name": "RecipeIntent"
     },
     "type": "IntentRequest",
     "requestId": "request5678"
