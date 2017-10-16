@@ -47,7 +47,6 @@ exports.handler = function(event,context) {
 
 // *********************************************************************
 function buildResponse(options) {
-    //console.log('made it to buidresponse');
     var response = {
         version: "1.0",
         response: {
