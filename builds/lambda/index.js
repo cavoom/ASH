@@ -1,6 +1,6 @@
 'use strict';
 var library = require('./recipe.js');
-var hotels = require('../../hotel/hotels.js');
+var hotels = require('./hotels.js');
 
 exports.handler = function(event,context) {
 

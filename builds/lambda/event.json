@@ -16,7 +16,7 @@
       "slots": {
         "Item": {
           "name": "Item",
-          "value": "bathroom"
+          "value": "lunch"
         }
       },
       "name": "RecipeIntent"
