@@ -19,9 +19,9 @@
           "value": "lunch"
         }
       },
-      "name": "RecipeIntent"
+      "name": "LaunchIntent"
     },
-    "type": "IntentRequest",
+    "type": "LaunchRequest",
     "requestId": "request5678"
   }
 }
