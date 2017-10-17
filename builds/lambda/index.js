@@ -58,7 +58,13 @@ function buildResponse(options) {
                 type: "SSML",
                 ssml: "<speak>"+options.speechText+"</speak>"
                 },
-        shouldEndSession: options.endSession
+        
+        card: {
+            type: "Simple",
+            title: "ASH",
+            content: options.speechText
+        },
+        shouldEndSession: options.endSession,
         }
     };
 
