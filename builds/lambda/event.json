@@ -16,12 +16,12 @@
       "slots": {
         "Item": {
           "name": "Item",
-          "value": "lunch"
+          "value": "Aloft Atlanta Downtown3"
         }
       },
-      "name": "LaunchIntent"
+      "name": "HotelIntent"
     },
-    "type": "LaunchRequest",
+    "type": "IntentRequest",
     "requestId": "request5678"
   }
 }

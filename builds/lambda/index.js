@@ -2,6 +2,7 @@
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 
+
 exports.handler = function(event,context) {
 
     try {
@@ -21,8 +22,11 @@ exports.handler = function(event,context) {
                 handleRequestIntent(request, context)
 
         } else if (request.intent.name === "HotelIntent"){
-
-                handleHotelIntent(request, context);
+                let item = request.intent.slots.Item.value;
+                findHotel(item, (response)=>{
+                    handleHotelIntent(response, context);
+                });
+                
 
         } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
                 handleStopIntent(context);
@@ -132,24 +136,30 @@ function handleRequestIntent(request, context) {
 
 // **********************************************************************
 
-function handleHotelIntent(request, context) {
-            let options = {};
-            // this will change depending upon how setup in the amazon portal
-            let item = request.intent.slots.Item.value;
-           
-            // This is the area where we need to loop through everything
-            // See hotel/lookup.js
-            //console.log(library[item]);
+function handleHotelIntent(hotelInfo, context) {
+    let options = {};    
+    options.speechText = hotelInfo;
+    options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
+    options.endSession = false;
+    context.succeed(buildResponse(options));
             
-            // convert ITEM to lowercase?
-            // if ITEM exists in ./recipe then ... 
-            options.speechText = hotels[2].boardingLocation;
-            //options.speechText +=getWish();
-            // nothing left to do now, so end the session
-            options.endSession = false;
+}
 
-            context.succeed(buildResponse(options));
+// **********************************************************************
 
-            // if item does not exist ... 
-            // options.speechText = "I don't know the answer to your question";
+function findHotel(item, callback){
+    //console.log('made it to find hotel', hotels.length);
+    //console.log(item);
+    var result = "I'm sorry, I couldn't find any results. Please ask your question again.";
+    var i = 0;
+while (i<hotels.length){
+
+    if (item == hotels[i].hotelName){
+        result = "The "+item+" is on bus route # "+hotels[i].routeNumber+". Your boarding location is "+hotels[i].boardingLocation;;
+        break;
+    } 
+    i++;
+}
+//console.log(result);
+callback (result);
 }
