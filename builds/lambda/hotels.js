@@ -11,13 +11,18 @@ var hotelArray = [
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
+  {
+   "hotelName": "hotel Atlanta downtown",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
  {
    "hotelName": "Aloft Atlanta Downtown",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Artmore Hotel, The",
+   "hotelName": "artmore hotel",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
@@ -27,7 +32,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Courtyard Atlanta Buckhead",
+   "hotelName": "courtyard Atlanta buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },

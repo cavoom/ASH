@@ -22,7 +22,7 @@ exports.handler = function(event,context) {
                 handleRequestIntent(request, context)
 
         } else if (request.intent.name === "HotelIntent"){
-                let item = request.intent.slots.Item.value;
+                let item = request.intent.slots.Hotels.value;
                 findHotel(item, (response)=>{
                     handleHotelIntent(response, context);
                 });
@@ -156,7 +156,7 @@ function handleHotelIntent(hotelInfo, context) {
 function findHotel(item, callback){
     //console.log('made it to find hotel', hotels.length);
     //console.log(item);
-    var result = "I'm sorry, I couldn't find any results. Please ask your question again.";
+    var result = "No hotels match your search.";
     var i = 0;
 while (i<hotels.length){
 

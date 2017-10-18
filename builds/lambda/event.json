@@ -14,14 +14,14 @@
   "request": {
     "intent": {
       "slots": {
-        "Item": {
-          "name": "Item",
-          "value": "Aloft Atlanta Downtown3"
+        "Hotels": {
+          "name": "Hotels",
+          "value": "artmore hotel"
         }
       },
       "name": "HotelIntent"
     },
-    "type": "LaunchRequest",
+    "type": "IntentRequest",
     "requestId": "request5678"
   }
 }
