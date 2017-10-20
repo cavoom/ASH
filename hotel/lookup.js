@@ -1,30 +1,24 @@
 var hotels = require('./hotels.js');
-//var object = require('./hotelObject.js');
-
 var i = 0;
+var item = "Courtyard Atlanta Downtown";
+var result = "I'm sorry. I couldn't find that hotel.";
 
-var slot = "Ellis Hotel, The";
+findHotel(item, (response)=>{
+console.log(response);
+    
+});
 
-// APPROACH 1: We have an array to search
-
+function findHotel(item, callback){
 while (i<hotels.length){
 
-    if (slot == hotels[i].hotelName){
-
-        console.log(hotels[i].hotelName);
+    if (item == hotels[i].hotelName){
+        result = hotels[i];
         break;
-    } else {
-        console.log('Not it');
-    }
-i++;
+    } 
+    i++;
 }
-
-// APPROACH 2: We have an Object to find
-
-// Super easy -- but Danny needs to lowercase all of this
-// and we need to confirm it's not going to change
-
-//console.log(object[slot]);
+callback (result);
+}
 
 
 
