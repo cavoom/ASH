@@ -2,32 +2,32 @@
 
 var hotelArray = [
  {
-   "hotelName": "AC hotel Atlanta buckhead at Phipps plaza",
+   "hotelName": "ac hotel atlanta buckhead at phipps plaza",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "AC hotel buckhead",
+   "hotelName": "ac hotel buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "AC hotel phipps plaza",
+   "hotelName": "ac hotel phipps plaza",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "AC hotel Atlanta downtown",
+   "hotelName": "ac hotel atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "AC hotel downtown Atlanta",
+   "hotelName": "ac hotel downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "aloft Atlanta downtown",
+   "hotelName": "aloft atlanta downtown",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
@@ -37,7 +37,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "aloft downtown Atlanta",
+   "hotelName": "aloft downtown atlanta",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
@@ -52,37 +52,42 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "courtyard Atlanta airport north Virginia avenue",
+   "hotelName": "the artmore hotel",
+   "routeNumber": "",
+   "boardingLocation": ""
+ },
+ {
+   "hotelName": "courtyard atlanta airport north virginia avenue",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "the courtyard Marriott Atlanta airport",
+   "hotelName": "the courtyard marriott atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport courtyard Marriott",
+   "hotelName": "atlanta airport courtyard marriott",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "courtyard Atlanta buckhead",
+   "hotelName": "courtyard atlanta buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "buckhead courtyard Marriott",
+   "hotelName": "buckhead courtyard marriott",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "courtyard Marriott buckhead",
+   "hotelName": "courtyard marriott buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "courtyard Atlanta cumberland galleria",
+   "hotelName": "courtyard atlanta cumberland galleria",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -102,7 +107,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "courtyard Atlanta downtown",
+   "hotelName": "courtyard atlanta downtown",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
@@ -117,27 +122,27 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "courtyard Atlanta midtown Georgia tech",
+   "hotelName": "courtyard atlanta midtown georgia tech",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "courtyard midtown Georgia tech",
+   "hotelName": "courtyard midtown georgia tech",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "courtyard hotel midtown Georgia tech",
+   "hotelName": "courtyard hotel midtown georgia tech",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "courtyard Atlanta windy hill/ballpark",
+   "hotelName": "courtyard atlanta windy hill/ballpark",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "courtyard Atlanta Marietta",
+   "hotelName": "courtyard atlanta marietta",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -147,22 +152,22 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "courtyard Marriott windy hill",
+   "hotelName": "courtyard marriott windy hill",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "crowne plaza Atlanta airport",
+   "hotelName": "crowne plaza atlanta airport",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport crowne plaza",
+   "hotelName": "atlanta airport crowne plaza",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "crowne plaza Atlanta midtown",
+   "hotelName": "crowne plaza atlanta midtown",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
@@ -177,7 +182,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "crowne plaza Atlanta perimeter at ravinia",
+   "hotelName": "crowne plaza atlanta perimeter at ravinia",
    "routeNumber": "9",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -192,32 +197,32 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "crowne plaza hotel Atlanta perimeter",
+   "hotelName": "crowne plaza hotel atlanta perimeter",
    "routeNumber": "9",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "doubletree by Hilton Atlanta airport",
+   "hotelName": "doubletree by hilton atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "doubletree Atlanta airport",
+   "hotelName": "doubletree atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hilton double tree Atlanta airport",
+   "hotelName": "hilton double tree atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "doubletree Hilton Atlanta airport",
+   "hotelName": "doubletree hilton atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "doubletree by Hilton Atlanta buckhead",
+   "hotelName": "doubletree by hilton atlanta buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
@@ -227,7 +232,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hilton doubletree buckhead",
+   "hotelName": "hilton doubletree buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
@@ -237,17 +242,17 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "doubletree by Hilton Atlanta downtown",
+   "hotelName": "doubletree by hilton atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "doubletree downtown Atlanta",
+   "hotelName": "doubletree downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton doubletree downtown Atlanta",
+   "hotelName": "hilton doubletree downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
@@ -257,12 +262,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Hilton doubletree",
+   "hotelName": "downtown hilton doubletree",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "doubletree by Hilton Atlanta marietta",
+   "hotelName": "doubletree by hilton atlanta marietta",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -272,7 +277,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hilton doubletree marietta",
+   "hotelName": "hilton doubletree marietta",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -282,7 +287,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "doubletree suites by Hilton Atlanta galleria",
+   "hotelName": "doubletree suites by hilton atlanta galleria",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -292,7 +297,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hilton doubletree galleria",
+   "hotelName": "hilton doubletree galleria",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -312,7 +317,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "embassy suites Atlanta at centennial olympic park",
+   "hotelName": "embassy suites atlanta at centennial olympic park",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
@@ -332,7 +337,7 @@ var hotelArray = [
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "embassy suites Atlanta buckhead",
+   "hotelName": "embassy suites atlanta buckhead",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
@@ -347,7 +352,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "embassy suites Atlanta perimeter center",
+   "hotelName": "embassy suites atlanta perimeter center",
    "routeNumber": "9",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -372,7 +377,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "fairfield inn and suites Atlanta buckhead",
+   "hotelName": "fairfield inn and suites atlanta buckhead",
    "routeNumber": "18",
    "boardingLocation": "Outside Building C"
  },
@@ -392,7 +397,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "fairfield inn and suites Atlanta perimeter center",
+   "hotelName": "fairfield inn and suites atlanta perimeter center",
    "routeNumber": "10",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -412,32 +417,32 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "four seasons Atlanta",
+   "hotelName": "4 seasons atlanta",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "four seasons hotel",
+   "hotelName": "4 seasons hotel",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Atlanta four seasons hotel",
+   "hotelName": "atlanta 4 seasons hotel",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "the Georgian terrace",
+   "hotelName": "the georgian terrace",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Georgian terrace hotel",
+   "hotelName": "georgian terrace hotel",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Georgian terrace",
+   "hotelName": "georgian terrace",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
@@ -457,27 +462,27 @@ var hotelArray = [
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "grand Hyatt Atlanta in buckhead",
+   "hotelName": "grand hyatt atlanta in buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "buckhead grand Hyatt",
+   "hotelName": "buckhead grand hyatt",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "grand Hyatt buckhead",
+   "hotelName": "grand hyatt buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "grand Hyatt in buckhead",
+   "hotelName": "grand hyatt in buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "hampton inn and suites Atlanta downtown",
+   "hotelName": "hampton inn and suites atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
@@ -497,12 +502,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hampton downtown Atlanta",
+   "hotelName": "hampton downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hampton inn Atlanta buckhead",
+   "hotelName": "hampton inn atlanta buckhead",
    "routeNumber": "18",
    "boardingLocation": "Outside Building C"
  },
@@ -522,112 +527,112 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "hampton inn Atlanta Georgia tech downtown",
+   "hotelName": "hampton inn atlanta georgia tech downtown",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Georgia tech hampton inn",
+   "hotelName": "georgia tech hampton inn",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hampton inn Georgia tech",
+   "hotelName": "hampton inn georgia tech",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hampton inn downtown Georgia tech",
+   "hotelName": "hampton inn downtown georgia tech",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton Atlanta airport",
+   "hotelName": "hilton atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport Hilton",
+   "hotelName": "atlanta airport hilton",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hilton by Atlanta airport",
+   "hotelName": "hilton by atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hilton Atlanta downtown",
+   "hotelName": "hilton atlanta downtown",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Hilton",
+   "hotelName": "downtown hilton",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton downtown",
+   "hotelName": "hilton downtown",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta Hilton",
+   "hotelName": "downtown atlanta hilton",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton garden inn Atlanta downtown",
+   "hotelName": "hilton garden inn atlanta downtown",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "downtown Hilton garden inn",
+   "hotelName": "downtown hilton garden inn",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "Hilton garden inn downtown",
+   "hotelName": "hilton garden inn downtown",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "downtown Atlanta Hilton garden inn",
+   "hotelName": "downtown atlanta hilton garden inn",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "Hilton garden inn Atlanta midtown",
+   "hotelName": "hilton garden inn atlanta midtown",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "midtown Hilton garden inn",
+   "hotelName": "midtown hilton garden inn",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "midtown Atlanta Hilton garden inn",
+   "hotelName": "midtown atlanta hilton garden inn",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton garden inn midtown",
+   "hotelName": "hilton garden inn midtown",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton garden inn Atlanta nw wildwood",
+   "hotelName": "hilton garden inn atlanta nw wildwood",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "wildwood Hilton garden inn",
+   "hotelName": "wildwood hilton garden inn",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hilton garden inn wildwood",
+   "hotelName": "hilton garden inn wildwood",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -637,67 +642,67 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "holiday inn & suites Atlanta airport north",
+   "hotelName": "holiday inn and suites atlanta airport north",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "holiday inn Atlanta airport north",
+   "hotelName": "holiday inn atlanta airport north",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport holiday inn",
+   "hotelName": "atlanta airport holiday inn",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "holiday inn & suites Atlanta airport",
+   "hotelName": "holiday inn and suites atlanta airport",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "holiday inn express & suites Atlanta downtown",
+   "hotelName": "holiday inn express and suites atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "holiday inn express downtown Atlanta",
+   "hotelName": "holiday inn express downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta holiday inn express",
+   "hotelName": "downtown atlanta holiday inn express",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "holiday inn downtown Atlanta",
+   "hotelName": "holiday inn downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "home2 suites by Hilton Atlanta downtown",
+   "hotelName": "home2 suites by hilton atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "home2 suites downtown Atlanta",
+   "hotelName": "home2 suites downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hilton home2 suites downtown Atlanta",
+   "hotelName": "hilton home2 suites downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta home2 suites",
+   "hotelName": "downtown atlanta home2 suites",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "homewood suites Atlanta buckhead",
+   "hotelName": "homewood suites atlanta buckhead",
    "routeNumber": "18",
    "boardingLocation": "Outside Building C"
  },
@@ -717,7 +722,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "homewood suites Atlanta galleria/cumberland",
+   "hotelName": "homewood suites atlanta galleria/cumberland",
    "routeNumber": "11",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -742,7 +747,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "homewood suites Atlanta midtown",
+   "hotelName": "homewood suites atlanta midtown",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
@@ -757,32 +762,32 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "homewood suites midtown Atlanta",
+   "hotelName": "homewood suites midtown atlanta",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hotel indigo Atlanta downtown",
+   "hotelName": "hotel indigo atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hotel indigo downtown Atlanta",
+   "hotelName": "hotel indigo downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta hotel indigo",
+   "hotelName": "downtown atlanta hotel indigo",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "indigo hotel downtown Atlanta",
+   "hotelName": "indigo hotel downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hotel indigo Atlanta midtown",
+   "hotelName": "hotel indigo atlanta midtown",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
@@ -797,177 +802,177 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "indigo hotel midtown Atlanta",
+   "hotelName": "indigo hotel midtown atlanta",
    "routeNumber": "5",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hyatt Atlanta midtown",
+   "hotelName": "hyatt atlanta midtown",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "midtown Hyatt",
+   "hotelName": "midtown hyatt",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hyatt midtown Atlanta",
+   "hotelName": "hyatt midtown atlanta",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "midtown Atlanta Hyatt",
+   "hotelName": "midtown atlanta hyatt",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hyatt house Atlanta cobb galleria",
+   "hotelName": "hyatt house atlanta cobb galleria",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt house cobb galleria",
+   "hotelName": "hyatt house cobb galleria",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "cobb galleria Hyatt house",
+   "hotelName": "cobb galleria hyatt house",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt cobb galleria",
+   "hotelName": "hyatt cobb galleria",
    "routeNumber": "14",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt house Atlanta downtown",
+   "hotelName": "hyatt house atlanta downtown",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "Hyatt house downtown Atlanta",
+   "hotelName": "hyatt house downtown atlanta",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "downtown Atlanta Hyatt house",
+   "hotelName": "downtown atlanta hyatt house",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "downtown Hyatt house",
+   "hotelName": "downtown hyatt house",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "Hyatt place Atlanta airport north",
+   "hotelName": "hyatt place atlanta airport north",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hyatt place Atlanta airport",
+   "hotelName": "hyatt place atlanta airport",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport north Hyatt place",
+   "hotelName": "atlanta airport north hyatt place",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "north Atlanta airport Hyatt place",
+   "hotelName": "north atlanta airport hyatt place",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hyatt place Atlanta buckhead",
+   "hotelName": "hyatt place atlanta buckhead",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hyatt place buckhead",
+   "hotelName": "hyatt place buckhead",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "buckhead Hyatt place",
+   "hotelName": "buckhead hyatt place",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hyatt buckhead",
+   "hotelName": "hyatt buckhead",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Hyatt place Atlanta cobb galleria",
+   "hotelName": "hyatt place atlanta cobb galleria",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt place cobb galleria",
+   "hotelName": "hyatt place cobb galleria",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "cobb galleria Hyatt place",
+   "hotelName": "cobb galleria hyatt place",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt place at cobb galleria",
+   "hotelName": "hyatt place at cobb galleria",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt place Atlanta downtown",
+   "hotelName": "hyatt place atlanta downtown",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hyatt place downtown Atlanta",
+   "hotelName": "hyatt place downtown atlanta",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta Hyatt place",
+   "hotelName": "downtown atlanta hyatt place",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Hyatt place",
+   "hotelName": "downtown hyatt place",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hyatt regency Atlanta",
+   "hotelName": "hyatt regency atlanta",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Atlanta Hyatt regency",
+   "hotelName": "atlanta hyatt regency",
    "routeNumber": "3",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Hyatt regency suites Atlanta northwest",
+   "hotelName": "hyatt regency suites atlanta northwest",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt on windy hill",
+   "hotelName": "hyatt on windy hill",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Hyatt regency Atlanta northwest",
+   "hotelName": "hyatt regency atlanta northwest",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Atlanta northwest Hyatt regency",
+   "hotelName": "atlanta northwest hyatt regency",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -987,7 +992,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "intercontinental buckhead Atlanta",
+   "hotelName": "intercontinental buckhead atlanta",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
@@ -1002,37 +1007,37 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "jw Marriott Atlanta buckhead",
+   "hotelName": "jw marriott atlanta buckhead",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "jw Marriott buckhead",
+   "hotelName": "jw marriott buckhead",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "buckhead jw Marriott",
+   "hotelName": "buckhead jw marriott",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "jw Marriott in buckhead",
+   "hotelName": "jw marriott in buckhead",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "jw Marriott Atlanta",
+   "hotelName": "jw marriott atlanta",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "loews Atlanta midtown",
+   "hotelName": "loews atlanta midtown",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown Atlanta loews",
+   "hotelName": "midtown atlanta loews",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1042,17 +1047,17 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "loews midtown Atlanta",
+   "hotelName": "loews midtown atlanta",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "mandarin oriental Atlanta",
+   "hotelName": "mandarin oriental atlanta",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta mandarin oriental",
+   "hotelName": "atlanta mandarin oriental",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
@@ -1067,102 +1072,102 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Marriott Atlanta buckhead hotel & conference center",
+   "hotelName": "marriott atlanta buckhead hotel and conference center",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta Marriott buckhead & conference center",
+   "hotelName": "atlanta marriott buckhead and conference center",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "buckhead Marriott & conference center",
+   "hotelName": "buckhead marriott and conference center",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Marriott buckhead & conference center",
+   "hotelName": "marriott buckhead and conference center",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Marriott Atlanta northwest at galleria",
+   "hotelName": "marriott atlanta northwest at galleria",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Atlanta Marriott northwest at galleria",
+   "hotelName": "atlanta marriott northwest at galleria",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "northwest Atlanta Marriott at galleria",
+   "hotelName": "northwest atlanta marriott at galleria",
    "routeNumber": "13",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Marriott Atlanta perimeter center",
+   "hotelName": "marriott atlanta perimeter center",
    "routeNumber": "10",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Marriott perimeter center",
+   "hotelName": "marriott perimeter center",
    "routeNumber": "10",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "perimeter center Marriott",
+   "hotelName": "perimeter center marriott",
    "routeNumber": "10",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Marriott at perimeter center",
+   "hotelName": "marriott at perimeter center",
    "routeNumber": "10",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Marriott marquis Atlanta",
+   "hotelName": "marriott marquis atlanta",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Atlanta Marriott marquis",
+   "hotelName": "atlanta marriott marquis",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Marriott marquis",
+   "hotelName": "marriott marquis",
    "routeNumber": "1",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Marriott suites Atlanta midtown",
+   "hotelName": "marriott suites atlanta midtown",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown Atlanta Marriott suites",
+   "hotelName": "midtown atlanta marriott suites",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Marriott suites midtown Atlanta",
+   "hotelName": "marriott suites midtown atlanta",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown Marriott suites",
+   "hotelName": "midtown marriott suites",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "omni Atlanta at cnn center *headquarters hotel*",
+   "hotelName": "omni atlanta at cnn center *headquarters hotel*",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "omni in Atlanta",
+   "hotelName": "omni in atlanta",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
@@ -1177,17 +1182,17 @@ var hotelArray = [
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "regency suites hotel midtown Atlanta",
+   "hotelName": "regency suites hotel midtown atlanta",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "regency suites midtown Atlanta",
+   "hotelName": "regency suites midtown atlanta",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown Atlanta regency suites",
+   "hotelName": "midtown atlanta regency suites",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1197,7 +1202,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "renaissance Atlanta midtown",
+   "hotelName": "renaissance atlanta midtown",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
@@ -1207,7 +1212,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "midtown Atlanta renaissance",
+   "hotelName": "midtown atlanta renaissance",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
@@ -1217,7 +1222,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "renaissance Atlanta waverly hotel & convention center",
+   "hotelName": "renaissance atlanta waverly hotel and convention center",
    "routeNumber": "11",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1232,12 +1237,12 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Atlanta renaissance waverly hotel",
+   "hotelName": "atlanta renaissance waverly hotel",
    "routeNumber": "11",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "renaissance concourse Atlanta airport",
+   "hotelName": "renaissance concourse atlanta airport",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
@@ -1247,32 +1252,32 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport renaissance concourse",
+   "hotelName": "atlanta airport renaissance concourse",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "renaissance Atlanta airport",
+   "hotelName": "renaissance atlanta airport",
    "routeNumber": "20",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "residence inn Atlanta airport north/virginia avenue",
+   "hotelName": "residence inn atlanta airport north/virginia avenue",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta airport residence inn",
+   "hotelName": "atlanta airport residence inn",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "residence inn Atlanta airport",
+   "hotelName": "residence inn atlanta airport",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "residence inn Atlanta buckhead",
+   "hotelName": "residence inn atlanta buckhead",
    "routeNumber": "18",
    "boardingLocation": "Outside Building C"
  },
@@ -1287,12 +1292,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta buckhead residence inn",
+   "hotelName": "atlanta buckhead residence inn",
    "routeNumber": "18",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "residence inn Atlanta cumberland/galleria",
+   "hotelName": "residence inn atlanta cumberland/galleria",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1307,12 +1312,12 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "residence inn Atlanta downtown",
+   "hotelName": "residence inn atlanta downtown",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta residence inn",
+   "hotelName": "downtown atlanta residence inn",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
@@ -1327,27 +1332,27 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "residence inn Atlanta midtown at Georgia tech",
+   "hotelName": "residence inn atlanta midtown at georgia tech",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "residence inn midtown",
+   "hotelName": "residence inn midtown ",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "residence inn at Georgia tech",
+   "hotelName": "residence inn at georgia tech",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "Georgia tech residence inn",
+   "hotelName": "georgia tech residence inn",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "residence inn Atlanta midtown, peachtree at 17th",
+   "hotelName": "residence inn atlanta midtown, peachtree at 17th ",
    "routeNumber": "8",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1362,17 +1367,17 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown Atlanta peachtree residence inn",
+   "hotelName": "midtown atlanta peachtree residence inn ",
    "routeNumber": "8",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "ritz-carlton, Atlanta",
+   "hotelName": "ritz-carlton, atlanta",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "Atlanta ritz-carlton",
+   "hotelName": "atlanta ritz-carlton",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
@@ -1392,12 +1397,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "sheraton Atlanta downtown",
+   "hotelName": "sheraton atlanta downtown",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "sheraton downtown Atlanta",
+   "hotelName": "sheraton downtown atlanta",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
@@ -1407,12 +1412,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta sheraton",
+   "hotelName": "downtown atlanta sheraton",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "sheraton suites galleria Atlanta",
+   "hotelName": "sheraton suites galleria atlanta",
    "routeNumber": "12",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1427,7 +1432,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "springhill suites Atlanta buckhead",
+   "hotelName": "springhill suites atlanta buckhead",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
@@ -1442,12 +1447,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta buckhead springhill suites",
+   "hotelName": "atlanta buckhead springhill suites",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "st. regis Atlanta",
+   "hotelName": "st. regis atlanta",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
@@ -1457,7 +1462,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "Atlanta st. regis",
+   "hotelName": "atlanta st. regis",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
@@ -1502,7 +1507,7 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "w Atlanta buckhead",
+   "hotelName": "w atlanta buckhead",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },
@@ -1522,12 +1527,12 @@ var hotelArray = [
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "w Atlanta downtown",
+   "hotelName": "w atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown Atlanta w",
+   "hotelName": "downtown atlanta w",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
@@ -1537,17 +1542,17 @@ var hotelArray = [
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "w hotel downtown Atlanta",
+   "hotelName": "w hotel downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "w Atlanta midtown",
+   "hotelName": "w atlanta midtown",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown Atlanta w",
+   "hotelName": "midtown atlanta w",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1557,12 +1562,12 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "w hotel midtown Atlanta",
+   "hotelName": "w hotel midtown atlanta",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "westin Atlanta perimeter north",
+   "hotelName": "westin atlanta perimeter north",
    "routeNumber": "10",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -1582,7 +1587,7 @@ var hotelArray = [
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "westin buckhead Atlanta",
+   "hotelName": "westin buckhead atlanta",
    "routeNumber": "16",
    "boardingLocation": "Outside Building C"
  },

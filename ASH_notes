@@ -1,3 +1,6 @@
 I am using this site to convert the HOTELS csv to JSON:
 http://www.convertcsv.com/csv-to-json.htm
 
+Convert the event.json to lowercase so that we can compare to our database
+which is all in lower case when we do a lookup!
+

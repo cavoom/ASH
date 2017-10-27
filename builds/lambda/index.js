@@ -1,7 +1,9 @@
 'use strict';
+
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
-
+var briefings = require('./briefing.json');
+var sessions = require('./ashData.json');
 
 exports.handler = function(event,context) {
 
@@ -22,9 +24,28 @@ exports.handler = function(event,context) {
                 handleRequestIntent(request, context)
 
         } else if (request.intent.name === "HotelIntent"){
+        
                 let item = request.intent.slots.Hotels.value;
-                findHotel(item, (response)=>{
+                let lowerItem = item.toLowerCase();
+                findHotel(lowerItem, (response)=>{
                     handleHotelIntent(response, context);
+                });
+
+        } else if (request.intent.name === "BriefingIntent"){
+                //let item = request.intent.slots.Briefing.value;
+                //let lowerItem = item.toLowerCase();
+                findBriefing((response)=>{
+                    //console.log('headed to the handle briefing intent yo');
+                    handleBriefingIntent(response, context);
+                });
+        
+    } else if (request.intent.name === "SessionIntent"){
+                //console.log('made it!');
+                let item = request.intent.slots.Session.value;
+                item = item.toLowerCase();
+                findSession(item, (response)=>{
+                    //console.log(response);
+                    handleSessionIntent(response, context);
                 });
                 
 
@@ -49,6 +70,33 @@ exports.handler = function(event,context) {
 }
 }
 
+// *********************************************************************
+function findSession(item, callback){
+    //console.log('made it to find session');
+    var i=0;
+    var searchResults = [];
+    //console.log('sessions length is ', sessions.length);
+    var timeNow = new Date();
+    while (i < sessions.length){
+        var title = sessions[i].sessionTitle;
+        title = title.toLowerCase();
+        var startTime = sessions[i].sessionStartTime;
+        startTime = new Date(startTime);
+        var endTime = sessions[i].sessionEndTime;
+        endTime = new Date(endTime);
+
+        if(title.includes(item) && timeNow >= startTime && timeNow < endTime){
+            //console.log(allData[i].sessionId+"-"+allData[i].sessionTitle);
+            searchResults.push(sessions[i]);
+        }
+
+    i++;
+
+}
+console.log('made it thru');
+callback(searchResults);
+
+}
 // *********************************************************************
 function buildResponse(options) {
     var response = {
@@ -84,6 +132,17 @@ function buildResponse(options) {
 
 // *********************************************************************
 
+function handleSessionIntent(response, context){
+    let options = {};
+    let number = response.length;
+        options.speechText = "I found " + number + " sessions that matched your search.";;
+        options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
+        options.endSession = false;
+        context.succeed(buildResponse(options));
+
+}
+
+// *********************************************************************
 function handleLaunchRequest(context) {
     let options = {};
         options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, when\'s the general session? ... Now, what can I help you with?";
@@ -93,7 +152,7 @@ function handleLaunchRequest(context) {
 }
 
 
-
+// *********************************************************************
 function handleStopIntent(context){
             let options = {};    
                 options.speechText = "Goodbye";
@@ -153,6 +212,18 @@ function handleHotelIntent(hotelInfo, context) {
 
 // **********************************************************************
 
+function handleBriefingIntent(briefingInfo, context) {
+    let options = {};    
+    console.log('handle briefing intent', briefingInfo);
+    options.speechText = briefingInfo;
+    options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
+    options.endSession = false;
+    context.succeed(buildResponse(options));
+            
+}
+
+// **********************************************************************
+
 function findHotel(item, callback){
     //console.log('made it to find hotel', hotels.length);
     //console.log(item);
@@ -164,6 +235,39 @@ while (i<hotels.length){
         result = "The "+item+" is on bus route # "+hotels[i].routeNumber+". Your boarding location is "+hotels[i].boardingLocation;;
         break;
     } 
+    i++;
+}
+//console.log(result);
+callback (result);
+}
+
+// **********************************************************************
+
+function findBriefing(callback){
+    //console.log('made it to find hotel', hotels.length);
+    //console.log(item);
+    var result = "There are no briefings available right now.";
+    let nowTime = new Date();
+    console.log(nowTime);
+    var i = 0;
+
+while (i<briefings.length){
+    var sessionStart = briefings[i].startTime;
+    sessionStart = new Date(sessionStart);
+    var sessionEnd = briefings[i].endTime;
+    sessionEnd = new Date(sessionEnd);
+    //STOPPED HERE
+
+
+    if(nowTime >= sessionStart && nowTime <= sessionEnd) {
+    result = briefings[i].greeting+briefings[i].story3+
+    briefings[i].story2+briefings[i].story4+briefings[i].story5
+    +briefings[i].story6;
+    //console.log('found one');
+    break;
+    } else {
+        console.log('not it')
+    }
     i++;
 }
 //console.log(result);
