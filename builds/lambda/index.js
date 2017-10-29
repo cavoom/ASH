@@ -40,9 +40,9 @@ exports.handler = function(event,context) {
                 });
     
     // STOPPED HERE
-    // Currently fetches the number of sessions going on NOW
-    // We need to find all sessions, sessions occurring from this point on today
-    // Order the sessions found and Share the first, say next to hear another
+    // Now we need a NEXT INTENT
+    // Save the ordered array of objects into sessions.attributes
+    // Build a NEXT INTENT
 
 
     } else if (request.intent.name === "SessionIntent"){
@@ -51,7 +51,6 @@ exports.handler = function(event,context) {
                 item = item.toLowerCase();
                 findSession(item, (searchResults)=>{
                     sortResult(searchResults,(orderedResponse)=>{
-                        //console.log('After: ', orderedResponse[0]);
                         handleSessionIntent(orderedResponse, context);
                     })
                    
@@ -156,6 +155,8 @@ function handleSessionIntent(response, context){
         options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say continue to hear another.";
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
+
+        // STOPPED HERE -- SAVE THE ORDERED RESPONSE INTO SESSION.ATTRIBUTS
         context.succeed(buildResponse(options));
 
 }
