@@ -46,14 +46,15 @@ exports.handler = function(event,context) {
 
 
     } else if (request.intent.name === "SessionIntent"){
-                //console.log('made it!');
+    
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
-                findSession(item, (response)=>{
-                    //sortResult(response,(orderedResponse)=>{
-                        //handleSessionIntent(orderedResponse, context);
-                   // })
-                    handleSessionIntent(response,context);
+                findSession(item, (searchResults)=>{
+                    sortResult(searchResults,(orderedResponse)=>{
+                        //console.log('After: ', orderedResponse[0]);
+                        handleSessionIntent(orderedResponse, context);
+                    })
+                   
                 });
                 
 
@@ -78,12 +79,12 @@ exports.handler = function(event,context) {
 }
 }
 // *********************************************************************
-function sortResult(response, callback){
-        
-        response.sort(function(a, b){
+function sortResult(searchResults, callback){
+
+        searchResults.sort(function(a, b){
         var dateA=new Date(a.sessionStartTime), dateB=new Date(b.sessionStartTime);
-        return dateA-dateB })
-        callback(response);
+        return dateA-dateB });
+        callback(searchResults);
 }
 // *********************************************************************
 function findSession(item, callback){
@@ -110,7 +111,7 @@ function findSession(item, callback){
     i++;
 
 }
-console.log('made it thru');
+//console.log('made it thru');
 callback(searchResults);
 
 }
@@ -231,7 +232,7 @@ function handleHotelIntent(hotelInfo, context) {
 
 function handleBriefingIntent(briefingInfo, context) {
     let options = {};    
-    console.log('handle briefing intent', briefingInfo);
+    //console.log('handle briefing intent', briefingInfo);
     options.speechText = briefingInfo;
     options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
     options.endSession = false;
@@ -265,7 +266,7 @@ function findBriefing(callback){
     //console.log(item);
     var result = "There are no briefings available right now.";
     let nowTime = new Date();
-    console.log(nowTime);
+    //console.log(nowTime);
     var i = 0;
 
 while (i<briefings.length){
@@ -283,7 +284,7 @@ while (i<briefings.length){
     //console.log('found one');
     break;
     } else {
-        console.log('not it')
+        //console.log('not it')
     }
     i++;
 }
