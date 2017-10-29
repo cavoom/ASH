@@ -50,8 +50,10 @@ exports.handler = function(event,context) {
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (response)=>{
-
-                    handleSessionIntent(response, context);
+                    //sortResult(response,(orderedResponse)=>{
+                        //handleSessionIntent(orderedResponse, context);
+                   // })
+                    handleSessionIntent(response,context);
                 });
                 
 
@@ -75,7 +77,14 @@ exports.handler = function(event,context) {
     throw "Unknown Intent";
 }
 }
-
+// *********************************************************************
+function sortResult(response, callback){
+        
+        response.sort(function(a, b){
+        var dateA=new Date(a.sessionStartTime), dateB=new Date(b.sessionStartTime);
+        return dateA-dateB })
+        callback(response);
+}
 // *********************************************************************
 function findSession(item, callback){
     //console.log('made it to find session');
@@ -143,7 +152,7 @@ function buildResponse(options) {
 function handleSessionIntent(response, context){
     let options = {};
     let number = response.length;
-        options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say next to hear another.";
+        options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say continue to hear another.";
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
         context.succeed(buildResponse(options));
