@@ -38,13 +38,19 @@ exports.handler = function(event,context) {
                     //console.log('headed to the handle briefing intent yo');
                     handleBriefingIntent(response, context);
                 });
-        
+    
+    // STOPPED HERE
+    // Currently fetches the number of sessions going on NOW
+    // We need to find all sessions, sessions occurring from this point on today
+    // Order the sessions found and Share the first, say next to hear another
+
+
     } else if (request.intent.name === "SessionIntent"){
                 //console.log('made it!');
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (response)=>{
-                    //console.log(response);
+
                     handleSessionIntent(response, context);
                 });
                 
@@ -85,7 +91,9 @@ function findSession(item, callback){
         var endTime = sessions[i].sessionEndTime;
         endTime = new Date(endTime);
 
-        if(title.includes(item) && timeNow >= startTime && timeNow < endTime){
+        // Get the all inclusive list
+        if(title.includes(item)){
+        //if(title.includes(item) && timeNow >= startTime && timeNow < endTime){
             //console.log(allData[i].sessionId+"-"+allData[i].sessionTitle);
             searchResults.push(sessions[i]);
         }
@@ -135,7 +143,7 @@ function buildResponse(options) {
 function handleSessionIntent(response, context){
     let options = {};
     let number = response.length;
-        options.speechText = "I found " + number + " sessions that matched your search.";;
+        options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say next to hear another.";
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
         context.succeed(buildResponse(options));
