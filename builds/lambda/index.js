@@ -53,8 +53,11 @@ exports.handler = function(event,context) {
                 
     } else if (request.intent.name === "NextIntent"){
         //console.log('at get next intent');
-        let searchResults = session.attributes;
-        //console.log(searchResults[0]);
+
+        // HERE ****
+        //let searchResults = session.attributes;
+        let searchResults = session.attributes.searchResults;
+        console.log('first one: ', searchResults[0]);
         getNext(searchResults,(nextOne)=>{
             handleNextIntent(nextOne, context);
         })
@@ -85,8 +88,10 @@ exports.handler = function(event,context) {
 function getNext(searchResults,callback){
     //console.log('search results length: ',searchResults.length);
     if(searchResults.length > 0){
-    searchResults.shift()}
-    else {
+    searchResults.shift();
+    //console.log('search results length: ',searchResults.length);
+
+} else {
         // we have a zero length array, do nothing
     }
     //console.log('shifted: ', searchResults[0]);
