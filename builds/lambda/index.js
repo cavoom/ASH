@@ -52,15 +52,16 @@ exports.handler = function(event,context) {
                 });
                 
     } else if (request.intent.name === "NextIntent"){
-        //console.log('at get next intent');
+        if(session.attributes.searchResults){
+            let searchResults = session.attributes.searchResults;
+            console.log('first one: ', searchResults[0]);
+            getNext(searchResults,(nextOne)=>{
+                handleNextIntent(nextOne, context);
+        })} else {
 
-        // HERE ****
-        //let searchResults = session.attributes;
-        let searchResults = session.attributes.searchResults;
-        console.log('first one: ', searchResults[0]);
-        getNext(searchResults,(nextOne)=>{
-            handleNextIntent(nextOne, context);
-        })
+            // STOPPED HERE
+            // DO THIS IS THERE IS NOTHING IN SESSION.ATRIBUTES.SEARCHRESULTS
+        }
 
 
         } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
@@ -177,8 +178,12 @@ function buildResponse(options) {
 function handleNextIntent(response, context){
     let options = {};
         if(response.length > 0){
-        options.speechText = "At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say continue to hear another.";
-        options.repromptText = "Just say continue or ask me another quesiton. You can exit by saying Stop.";
+        var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+        var theDay = new Date(response[0].sessionStartTime);
+        theDay = theDay.getDay();
+        theDay = daysOfWeek[theDay];
+        options.speechText = "On " + theDay + " at " + response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
     
@@ -199,8 +204,13 @@ function handleNextIntent(response, context){
 function handleSessionIntent(response, context){
     let options = {};
     let number = response.length;
-        options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say continue to hear another.";
-        options.repromptText = "Just say continue or ask me another quesiton. You can exit by saying Stop.";
+    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+    var theDay = new Date(response[0].sessionStartTime);
+    theDay = theDay.getDay();
+    theDay = daysOfWeek[theDay];
+
+        options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
         // STOPPED HERE -- SAVE THE ORDERED RESPONSE INTO SESSION.ATTRIBUTS
