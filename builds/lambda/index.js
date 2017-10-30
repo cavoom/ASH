@@ -38,11 +38,6 @@ exports.handler = function(event,context) {
                     //console.log('headed to the handle briefing intent yo');
                     handleBriefingIntent(response, context);
                 });
-    
-    // STOPPED HERE
-    // Now we need a NEXT INTENT
-    // Save the ordered array of objects into sessions.attributes
-    // Build a NEXT INTENT
 
 
     } else if (request.intent.name === "SessionIntent"){
@@ -56,6 +51,14 @@ exports.handler = function(event,context) {
                    
                 });
                 
+    } else if (request.intent.name === "NextIntent"){
+        //console.log('at get next intent');
+        let searchResults = session.attributes;
+        //console.log(searchResults[0]);
+        getNext(searchResults,(nextOne)=>{
+            handleNextIntent(nextOne, context);
+        })
+
 
         } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
                 handleStopIntent(context);
@@ -77,6 +80,19 @@ exports.handler = function(event,context) {
     throw "Unknown Intent";
 }
 }
+
+// *********************************************************************
+function getNext(searchResults,callback){
+    //console.log('search results length: ',searchResults.length);
+    if(searchResults.length > 0){
+    searchResults.shift()}
+    else {
+        // we have a zero length array, do nothing
+    }
+    //console.log('shifted: ', searchResults[0]);
+    callback(searchResults);
+}
+
 // *********************************************************************
 function sortResult(searchResults, callback){
 
@@ -118,6 +134,10 @@ callback(searchResults);
 function buildResponse(options) {
     var response = {
         version: "1.0",
+        sessionAttributes: {
+            //sessionId:sessionId,
+            searchResults: options.attributes     
+        },
         response: {
             outputSpeech: {
                 type: "SSML",
@@ -149,13 +169,35 @@ function buildResponse(options) {
 
 // *********************************************************************
 
+function handleNextIntent(response, context){
+    let options = {};
+        if(response.length > 0){
+        options.speechText = "At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say continue to hear another.";
+        options.repromptText = "Just say continue or ask me another quesiton. You can exit by saying Stop.";
+        options.endSession = false;
+        options.attributes = response;
+    
+        } else {
+
+        options.speechText = "There are no other sessions that match your search.";
+        options.repromptText = "You can search for another session or ask me a different question.";
+        options.endSession = false;
+        options.attributes = "no more results to share";
+
+        }
+
+        context.succeed(buildResponse(options));
+
+}
+// *********************************************************************
+
 function handleSessionIntent(response, context){
     let options = {};
     let number = response.length;
         options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. At " + response[0].startTime + " " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". Say continue to hear another.";
-        options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
+        options.repromptText = "Just say continue or ask me another quesiton. You can exit by saying Stop.";
         options.endSession = false;
-
+        options.attributes = response;
         // STOPPED HERE -- SAVE THE ORDERED RESPONSE INTO SESSION.ATTRIBUTS
         context.succeed(buildResponse(options));
 
@@ -167,6 +209,7 @@ function handleLaunchRequest(context) {
         options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, when\'s the general session? ... Now, what can I help you with?";
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
+         options.attributes = "none";
         context.succeed(buildResponse(options));
 }
 
@@ -177,7 +220,7 @@ function handleStopIntent(context){
                 options.speechText = "Goodbye";
                 options.repromptText = "";
                 options.endSession = true;
-                //options.attributes = session;
+                options.attributes = "none";
                 context.succeed(buildResponse(options));
 }
 
@@ -206,7 +249,7 @@ function handleRequestIntent(request, context) {
             //options.speechText +=getWish();
             // nothing left to do now, so end the session
             options.endSession = false;
-
+            options.attributes = "none";
             context.succeed(buildResponse(options));
 
 
@@ -225,6 +268,7 @@ function handleHotelIntent(hotelInfo, context) {
     options.speechText = hotelInfo;
     options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
     options.endSession = false;
+    options.attributes = "none";
     context.succeed(buildResponse(options));
             
 }
@@ -237,6 +281,7 @@ function handleBriefingIntent(briefingInfo, context) {
     options.speechText = briefingInfo;
     options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
     options.endSession = false;
+    options.attributes = "none";
     context.succeed(buildResponse(options));
             
 }

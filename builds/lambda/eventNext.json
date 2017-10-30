@@ -1,0 +1,49 @@
+{
+  "session": {
+    "new": false,
+    "sessionId": "session1234",
+    "attributes": [
+ {
+   "sessionId": 11045,
+   "sessionTitle": "Bone Marrow Failure: Inherited",
+   "startTime": "7:30:00 AM",
+   "endTime": "9:00:00 AM",
+   "sessionPerson": 181840,
+   "firstName": "Blanche P.",
+   "lastName": "Alter",
+   "sessionStartTime": "2017-12-31T07:00Z",
+   "sessionEndTime": "2017-12-27T23:00Z"
+ },
+ {
+   "sessionId": 11045,
+   "sessionTitle": "Bones Marrow Failure: Inherited",
+   "startTime": "10:30:00 AM",
+   "endTime": "12:00:00 PM",
+   "sessionPerson": 181840,
+   "firstName": "Blanche P.",
+   "lastName": "Alter",
+   "sessionStartTime": "2017-12-26T07:00Z",
+   "sessionEndTime": "2017-12-30T23:00Z"
+ }],
+    "user": {
+      "userId": "usr123"
+    },
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.5acba9b5-6d09-4444-aaa8-618c56eb0335"
+    }
+  },
+  "version": "1.0",
+  "request": {
+    "intent": {
+      "slots": {
+        "Hotels": {
+          "name": "Hotels",
+          "value": "artmore hotel"
+        }
+      },
+      "name": "NextIntent"
+    },
+    "type": "IntentRequest",
+    "requestId": "request5678"
+  }
+}
