@@ -45,7 +45,7 @@ exports.handler = function(event,context) {
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (searchResults)=>{
-
+                    console.log('i found '+searchResults.length+' sessions');
                     // IF searchResults.length > 0
                     // If not, create orderedResponse = [];
                     // make sure that handleSessionIntent handles a blank orderedResponse
@@ -98,9 +98,6 @@ exports.handler = function(event,context) {
 }
 }
 
-
-
-
 // *********************************************************************
 function getNext(searchResults,callback){
     //console.log('search results length: ',searchResults.length);
@@ -148,11 +145,12 @@ callback(searchResults);
 
 // *********************************************************************
 function sortResult(searchResults, callback){
-
+        if(searchResults.length>0){
         searchResults.sort(function(a, b){
         var dateA=new Date(a.sessionStartTime), dateB=new Date(b.sessionStartTime);
         return dateA-dateB });
         //console.log('made it through sort results');
+        }
         callback(searchResults);
 }
 // *********************************************************************
@@ -190,6 +188,8 @@ function buildResponse(options) {
         version: "1.0",
         sessionAttributes: {
             //sessionId:sessionId,
+            // If options.attributes.length > 10
+            // drop all but the first 10 results
             searchResults: options.attributes     
         },
         response: {
@@ -250,11 +250,12 @@ function handleNextIntent(response, context){
 // *********************************************************************
 
 function handleSessionIntent(response, context){
+    //console.log('here is my response to handle '+ response);
     let options = {};
     let number = response.length;
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 
-    // IF response.length > 0 ... Else setup options to playback nothing found.
+    if(response.length != 0){
 
     var theDay = new Date(response[0].sessionStartTime);
     theDay = theDay.getDay();
@@ -265,6 +266,14 @@ function handleSessionIntent(response, context){
         options.endSession = false;
         options.attributes = response;
         context.succeed(buildResponse(options));
+
+    } else {
+        options.speechText = "I found no results that matched your search.";
+        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+        options.endSession = false;
+        options.attributes = response;
+        context.succeed(buildResponse(options));
+    }
 
 }
 
