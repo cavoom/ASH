@@ -3,7 +3,7 @@
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 var briefings = require('./briefing.json');
-var sessions = require('./ashData.json');
+var sessions = require('./sessions.json');
 
 exports.handler = function(event,context) {
 
@@ -45,28 +45,41 @@ exports.handler = function(event,context) {
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (searchResults)=>{
+
+                    // IF searchResults.length > 0
+                    // If not, create orderedResponse = [];
+                    // make sure that handleSessionIntent handles a blank orderedResponse
                     sortResult(searchResults,(orderedResponse)=>{
                         handleSessionIntent(orderedResponse, context);
                     })
                    
                 });
+
+    } else if (request.intent.name === "SpeakerIntent"){
+    
+                let item = request.intent.slots.Speaker.value;
+                item = item.toLowerCase();
+                findSpeaker(item, (searchResults)=>{
+                    sortResult(searchResults,(orderedResponse)=>{
+                        handleSpeakerIntent(orderedResponse, context);
+                    }) 
+                });                
                 
     } else if (request.intent.name === "NextIntent"){
         if(session.attributes.searchResults){
             let searchResults = session.attributes.searchResults;
-            console.log('first one: ', searchResults[0]);
+            //console.log('first one: ', searchResults[0]);
             getNext(searchResults,(nextOne)=>{
                 handleNextIntent(nextOne, context);
         })} else {
 
             // STOPPED HERE
-            // DO THIS IS THERE IS NOTHING IN SESSION.ATRIBUTES.SEARCHRESULTS
-        }
+            // HANDLE SITUATION WHEN SESSION.ATTRIBUTES DOESN'T EXIST
 
+        }
 
         } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
                 handleStopIntent(context);
-
 
         } 
 
@@ -85,6 +98,9 @@ exports.handler = function(event,context) {
 }
 }
 
+
+
+
 // *********************************************************************
 function getNext(searchResults,callback){
     //console.log('search results length: ',searchResults.length);
@@ -100,11 +116,43 @@ function getNext(searchResults,callback){
 }
 
 // *********************************************************************
+function findSpeaker(item, callback){
+    //console.log('made it to find speaker. looking for: '+item);
+    var i=0;
+    var searchResults = [];
+    var speaker = "";
+    //console.log('sessions length is ', sessions.length);
+    //var timeNow = new Date();
+    while (i < sessions.length){
+        speaker = sessions[i].combinedName;
+        speaker = speaker.toLowerCase();
+        //var startTime = sessions[i].sessionStartTime;
+        //startTime = new Date(startTime);
+        //var endTime = sessions[i].sessionEndTime;
+        //endTime = new Date(endTime);
+
+        // Get the all inclusive list
+        if(speaker.includes(item)){
+        //if(title.includes(item) && timeNow >= startTime && timeNow < endTime){
+            //console.log(allData[i].sessionId+"-"+allData[i].sessionTitle);
+            searchResults.push(sessions[i]);
+        }
+
+    i++;
+
+}
+//console.log('search results: ', searchResults);
+callback(searchResults);
+
+}
+
+// *********************************************************************
 function sortResult(searchResults, callback){
 
         searchResults.sort(function(a, b){
         var dateA=new Date(a.sessionStartTime), dateB=new Date(b.sessionStartTime);
         return dateA-dateB });
+        //console.log('made it through sort results');
         callback(searchResults);
 }
 // *********************************************************************
@@ -113,14 +161,14 @@ function findSession(item, callback){
     var i=0;
     var searchResults = [];
     //console.log('sessions length is ', sessions.length);
-    var timeNow = new Date();
+    //var timeNow = new Date();
     while (i < sessions.length){
         var title = sessions[i].sessionTitle;
         title = title.toLowerCase();
-        var startTime = sessions[i].sessionStartTime;
-        startTime = new Date(startTime);
-        var endTime = sessions[i].sessionEndTime;
-        endTime = new Date(endTime);
+        //var startTime = sessions[i].sessionStartTime;
+        //startTime = new Date(startTime);
+        //var endTime = sessions[i].sessionEndTime;
+        //endTime = new Date(endTime);
 
         // Get the all inclusive list
         if(title.includes(item)){
@@ -205,6 +253,9 @@ function handleSessionIntent(response, context){
     let options = {};
     let number = response.length;
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+
+    // IF response.length > 0 ... Else setup options to playback nothing found.
+
     var theDay = new Date(response[0].sessionStartTime);
     theDay = theDay.getDay();
     theDay = daysOfWeek[theDay];
@@ -213,7 +264,27 @@ function handleSessionIntent(response, context){
         options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
-        // STOPPED HERE -- SAVE THE ORDERED RESPONSE INTO SESSION.ATTRIBUTS
+        context.succeed(buildResponse(options));
+
+}
+
+// *********************************************************************
+
+function handleSpeakerIntent(response, context){
+    let options = {};
+    let number = response.length;
+    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+
+    // IF response.length > 0 ... Else setup options to playback nothing found.
+    //console.log('here is the response: ' + response[0].combinedName);
+    var theDay = new Date(response[0].sessionStartTime);
+    theDay = theDay.getDay();
+    theDay = daysOfWeek[theDay];
+
+        options.speechText = "I found " + number + " sessions where " + response[0].combinedName + " is speaking. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+        options.endSession = false;
+        options.attributes = response;
         context.succeed(buildResponse(options));
 
 }
@@ -245,8 +316,8 @@ function handleStopIntent(context){
 function handleRequestIntent(request, context) {
             let options = {};
             
-            let item = request.intent.slots.Item.value;
-
+            var item = request.intent.slots.Item.value;
+            item = item.toLowerCase();
             //console.log(library[item]);
             
             // convert ITEM to lowercase?
@@ -335,8 +406,6 @@ while (i<briefings.length){
     sessionStart = new Date(sessionStart);
     var sessionEnd = briefings[i].endTime;
     sessionEnd = new Date(sessionEnd);
-    //STOPPED HERE
-
 
     if(nowTime >= sessionStart && nowTime <= sessionEnd) {
     result = briefings[i].greeting+briefings[i].story3+
