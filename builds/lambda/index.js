@@ -4,6 +4,8 @@ var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 var briefings = require('./briefing.json');
 var sessions = require('./sessions.json');
+var sessionsFound = 0; // this saves the number of sessions found in search
+var sessionsKept = 0; // tells you how many we are going to tell you about
 
 exports.handler = function(event,context) {
 
@@ -267,12 +269,26 @@ function handleSessionIntent(response, context){
     theDay = theDay.getDay();
     theDay = daysOfWeek[theDay];
 
-        options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
-        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
-        options.endSession = false;
-        // WE ARE TEMP COMMENTING OUT __ NEED TO MAKE SMALLER __ LESS THAN 11 ******************
-        //options.attributes = response;
-        context.succeed(buildResponse(options));
+            if(response.length>11){
+                sessionsFound = response.length; // this is saved for the response feedback
+                var sliced = response.slice(0,10);
+                sessionsKept = sliced.length;
+                options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+                options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+                options.endSession = false;
+                options.attributes = sliced;
+                context.succeed(buildResponse(options));
+            } else {
+                options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+                options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+                options.endSession = false;
+                options.attributes = response;
+                context.succeed(buildResponse(options)); 
+            }
+
+        
+        
+
 
     } else {
         options.speechText = "I found no results that matched your search.";
@@ -283,7 +299,12 @@ function handleSessionIntent(response, context){
     }
 
 }
-
+// *********************************************************************
+function sliceIt(response, callback){
+    var sliced = response.slice(0,2);
+    console.log('in the sliceit function: '+sliced.length);
+    callback(sliced);
+}
 // *********************************************************************
 
 function handleSpeakerIntent(response, context){
