@@ -286,10 +286,6 @@ function handleSessionIntent(response, context){
                 context.succeed(buildResponse(options)); 
             }
 
-        
-        
-
-
     } else {
         options.speechText = "I found no results that matched your search.";
         options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
