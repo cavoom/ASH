@@ -68,20 +68,24 @@ exports.handler = function(event,context) {
                 });                
                 
     } else if (request.intent.name === "NextIntent"){
+        if(session.attributes){
         if(session.attributes.searchResults){
             let searchResults = session.attributes.searchResults;
             //console.log('first one: ', searchResults[0]);
             getNext(searchResults,(nextOne)=>{
-                handleNextIntent(nextOne, context);
-        })} else {
+            handleNextIntent(nextOne, context);
+            })} else {
+            // HANDLE SITUATION WHEN SESSION.ATTRIBUTES.SEARCHRESULTS DOESN'T EXIST
+            }
 
-            // STOPPED HERE
-            // HANDLE SITUATION WHEN SESSION.ATTRIBUTES DOESN'T EXIST
+        } else {
+                // HANDLE WHEN SESSION.ATTRIBUTES DOESN'T EXIST
+                handleNextIntent(nextOne, context);
 
         }
 
-        } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
-                handleStopIntent(context);
+    } else if (request.intent.name === "AMAZON.StopIntent" || request.intent.name === "AMAZON.CancelIntent") {
+            handleStopIntent(context);
 
         } 
 
@@ -103,15 +107,15 @@ exports.handler = function(event,context) {
 // *********************************************************************
 function getNext(searchResults,callback){
     //console.log('search results length: ',searchResults.length);
+   if(searchResults){
+   
     if(searchResults.length > 0){
     searchResults.shift();
-    //console.log('search results length: ',searchResults.length);
-
-} else {
-        // we have a zero length array, do nothing
     }
-    //console.log('shifted: ', searchResults[0]);
     callback(searchResults);
+} else {
+    callback(searchResults);
+}
 }
 
 // *********************************************************************
@@ -233,6 +237,7 @@ function buildResponse(options) {
 
 function handleNextIntent(response, context){
     let options = {};
+    if(response){
         if(response.length > 0){
         var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
         var theDay = new Date(response[0].sessionStartTime);
@@ -254,6 +259,13 @@ function handleNextIntent(response, context){
 
         context.succeed(buildResponse(options));
 
+    }else{
+        options.speechText = "There are no other sessions that match your search.";
+        options.repromptText = "You can search for another session or ask me a different question.";
+        options.endSession = false;
+        options.attributes = "no more results to share";
+        context.succeed(buildResponse(options));
+    }
 }
 // *********************************************************************
 
