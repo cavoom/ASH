@@ -2,7 +2,8 @@
   "session": {
     "new": false,
     "sessionId": "session1234",
-    "attributes": {},
+    "attributes": {
+    },
     "user": {
       "userId": "usr123"
     },
@@ -16,7 +17,7 @@
       "slots": {
         "Session": {
           "name": "Session",
-          "value": "Immunomodulatory"
+          "value": "Bone"
         }
       },
       "name": "SessionIntent"

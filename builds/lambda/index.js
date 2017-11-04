@@ -45,7 +45,7 @@ exports.handler = function(event,context) {
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (searchResults)=>{
-                    console.log('i found '+searchResults.length+' sessions');
+                    //console.log('i found '+searchResults.length+' sessions');
                     // IF searchResults.length > 0
                     // If not, create orderedResponse = [];
                     // make sure that handleSessionIntent handles a blank orderedResponse
@@ -184,12 +184,18 @@ callback(searchResults);
 }
 // *********************************************************************
 function buildResponse(options) {
+    // var size = [];
+    // if(options.attributes){
+    // size = options.attributes;
+    // if(size.length>10){
+    //     size.slice(0,2);
+    //     console.log('build response is now: ', size.length);
+    //     options.attributes = size;
+    // }
+    // }
     var response = {
         version: "1.0",
         sessionAttributes: {
-            //sessionId:sessionId,
-            // If options.attributes.length > 10
-            // drop all but the first 10 results
             searchResults: options.attributes     
         },
         response: {
@@ -264,7 +270,8 @@ function handleSessionIntent(response, context){
         options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
         options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
         options.endSession = false;
-        options.attributes = response;
+        // WE ARE TEMP COMMENTING OUT __ NEED TO MAKE SMALLER __ LESS THAN 11 ******************
+        //options.attributes = response;
         context.succeed(buildResponse(options));
 
     } else {
