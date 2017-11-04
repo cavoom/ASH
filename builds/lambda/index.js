@@ -244,13 +244,13 @@ function handleNextIntent(response, context){
         theDay = theDay.getDay();
         theDay = daysOfWeek[theDay];
         options.speechText = "On " + theDay + " at " + response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
-        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+        options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
     
         } else {
 
-        options.speechText = "There are no other sessions that match your search.";
+        options.speechText = "There are no other sessions that match your search. You can ask me another question or just say stop.";
         options.repromptText = "You can search for another session or ask me a different question.";
         options.endSession = false;
         options.attributes = "no more results to share";
@@ -260,7 +260,7 @@ function handleNextIntent(response, context){
         context.succeed(buildResponse(options));
 
     }else{
-        options.speechText = "There are no other sessions that match your search.";
+        options.speechText = "There are no other sessions that match your search. You can ask me another question or just say stop.";
         options.repromptText = "You can search for another session or ask me a different question.";
         options.endSession = false;
         options.attributes = "no more results to share";
@@ -286,13 +286,13 @@ function handleSessionIntent(response, context){
                 var sliced = response.slice(0,10);
                 sessionsKept = sliced.length;
                 options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
-                options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+                options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = sliced;
                 context.succeed(buildResponse(options));
             } else {
                 options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
-                options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+                options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = response;
                 context.succeed(buildResponse(options)); 
@@ -300,7 +300,7 @@ function handleSessionIntent(response, context){
 
     } else {
         options.speechText = "I found no results that matched your search.";
-        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+        options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
         context.succeed(buildResponse(options));
@@ -314,23 +314,42 @@ function sliceIt(response, callback){
     callback(sliced);
 }
 // *********************************************************************
-
+//"I found " + number + " sessions where " + response[0].combinedName + " is speaking. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
 function handleSpeakerIntent(response, context){
     let options = {};
     let number = response.length;
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 
-    // IF response.length > 0 ... Else setup options to playback nothing found.
-    //console.log('here is the response: ' + response[0].combinedName);
+    if(response.length != 0){
+
     var theDay = new Date(response[0].sessionStartTime);
     theDay = theDay.getDay();
     theDay = daysOfWeek[theDay];
 
-        options.speechText = "I found " + number + " sessions where " + response[0].combinedName + " is speaking. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
-        options.repromptText = "Just say next or ask me another quesiton. You can exit by saying Stop.";
+            if(response.length>11){
+                sessionsFound = response.length; // this is saved for the response feedback
+                var sliced = response.slice(0,10);
+                sessionsKept = sliced.length;
+                options.speechText = "I found " + number + " sessions where " + response[0].combinedName + " is speaking. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+                options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
+                options.endSession = false;
+                options.attributes = sliced;
+                context.succeed(buildResponse(options));
+            } else {
+                options.speechText = "I found " + number + " sessions where " + response[0].combinedName + " is speaking. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+                options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
+                options.endSession = false;
+                options.attributes = response;
+                context.succeed(buildResponse(options)); 
+            }
+
+    } else {
+        options.speechText = "I found no results that matched your search.";
+        options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
         context.succeed(buildResponse(options));
+    }
 
 }
 
