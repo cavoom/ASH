@@ -3,6 +3,7 @@
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 var briefings = require('./briefing.json');
+//var sessions = require('./session_json_data.json');
 var sessions = require('./sessions.json');
 var sessionsFound = 0; // this saves the number of sessions found in search
 var sessionsKept = 0; // tells you how many we are going to tell you about
