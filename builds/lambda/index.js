@@ -445,6 +445,9 @@ while (i<hotels.length){
 
     if (item == hotels[i].hotelName){
         result = "The "+item+" is on bus route # "+hotels[i].routeNumber+". Your boarding location is "+hotels[i].boardingLocation;;
+        if(hotels[i].routeNumber == "No Shuttle"){
+            result = "This hotel is in walking distance. There is no need to grab a shuttle. Enjoy the short walk!"
+            }
         break;
     } 
     i++;
