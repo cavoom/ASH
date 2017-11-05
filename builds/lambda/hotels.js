@@ -544,6 +544,16 @@
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
+  {
+   "hotelName": "the ellis hotel",
+   "routeNumber": "4",
+   "boardingLocation": "Outside Building A-B"
+ },
+  {
+   "hotelName": "the ellis",
+   "routeNumber": "4",
+   "boardingLocation": "Outside Building A-B"
+ },
  {
    "hotelName": "embassy suites atlanta at centennial olympic park",
    "routeNumber": "No Shuttle",

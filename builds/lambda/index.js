@@ -92,15 +92,20 @@ exports.handler = function(event,context) {
 
     }
     else if (request.type === "SessionEndRequest") {
+        // added this to handle session end
+        //handleStopIntent(context);
 
 
     } else {
-
+        // we are trying this out
+        //handleStopIntent(context);
+        //handleUnknownIntent(context);
         throw "Unknown Intent";
     }
 
 } catch(e) {
-    // context.fail("Exception: "+e);
+    context.fail("Exception: "+e);
+    //handleStopIntent(context);
     throw "Unknown Intent";
 }
 }
@@ -300,7 +305,7 @@ function handleSessionIntent(response, context){
             }
 
     } else {
-        options.speechText = "I found no results that matched your search.";
+        options.speechText = "I found no results that matched your search. Ask me another question or exit by saying Stop.";
         options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
@@ -345,8 +350,8 @@ function handleSpeakerIntent(response, context){
             }
 
     } else {
-        options.speechText = "I found no results that matched your search.";
-        options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
+        options.speechText = "I found no results that matched your search. How else may I help you?";
+        options.repromptText = "Are you still there? Ask me another question or say stop to end this session.";
         options.endSession = false;
         options.attributes = response;
         context.succeed(buildResponse(options));
@@ -360,7 +365,7 @@ function handleLaunchRequest(context) {
         options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, when\'s the general session? ... Now, what can I help you with?";
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
-         options.attributes = "none";
+        options.attributes = "none";
         context.succeed(buildResponse(options));
 }
 
@@ -379,24 +384,22 @@ function handleStopIntent(context){
 // **********************************************************************
 
 function handleRequestIntent(request, context) {
-            console.log('i am at handle request intent');
+            //console.log('i am at handle request intent');
             let options = {};
             var item = request.intent.slots.Item.value;
             item = item.toLowerCase();
             console.log(library[item]);
             
-            // convert ITEM to lowercase?
-            // if ITEM exists in ./recipe then ... 
             if(library[item]){
-            options.speechText = library[item];
-            //options.speechText +=getWish();
-            // nothing left to do now, so end the session
-            options.endSession = false;
-
-            context.succeed(buildResponse(options));
+                options.speechText = library[item];
+                options.repromptText = "Are you still there? How else may I help you?";
+                options.endSession = false;
+                context.succeed(buildResponse(options));
+        
         } else {
             
-            options.speechText = "Sorry. I couldn't find "+item+ " in our list of questions.";
+            options.speechText = "Sorry. I couldn't find "+item+ " in our library. Ask me something else.";
+            options.repromptText = "Are you still there? How else may I help you?";
             //options.speechText +=getWish();
             // nothing left to do now, so end the session
             options.endSession = false;
@@ -474,9 +477,10 @@ while (i<briefings.length){
     sessionEnd = new Date(sessionEnd);
 
     if(nowTime >= sessionStart && nowTime <= sessionEnd) {
-    result = briefings[i].greeting+briefings[i].story3+
-    briefings[i].story2+briefings[i].story4+briefings[i].story5
-    +briefings[i].story6;
+    result = briefings[i].greeting+briefings[i].weather+
+    briefings[i].story1+briefings[i].story2+briefings[i].story3
+    +briefings[i].story4+briefings[i].story5+briefings[i].story6
+    +briefings[i].story7+briefings[i].story8+briefings[i].story9;
     //console.log('found one');
     break;
     } else {
