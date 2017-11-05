@@ -19,6 +19,7 @@ exports.handler = function(event,context) {
     }
 
     if(request.type === "LaunchRequest") {
+        console.log('going to handle launch request');
         handleLaunchRequest(context);
 
     } else if(request.type === "IntentRequest") {
@@ -80,7 +81,6 @@ exports.handler = function(event,context) {
             }
 
         } else {
-                // HANDLE WHEN SESSION.ATTRIBUTES DOESN'T EXIST
                 handleNextIntent(nextOne, context);
 
         }
@@ -379,11 +379,11 @@ function handleStopIntent(context){
 // **********************************************************************
 
 function handleRequestIntent(request, context) {
+            console.log('i am at handle request intent');
             let options = {};
-            
             var item = request.intent.slots.Item.value;
             item = item.toLowerCase();
-            //console.log(library[item]);
+            console.log(library[item]);
             
             // convert ITEM to lowercase?
             // if ITEM exists in ./recipe then ... 
@@ -405,9 +405,6 @@ function handleRequestIntent(request, context) {
 
 
             }
-
-            // if item does not exist ... 
-            // options.speechText = "I don't know the answer to your question";
         
 
 }
