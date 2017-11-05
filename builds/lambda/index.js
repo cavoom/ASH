@@ -91,9 +91,9 @@ exports.handler = function(event,context) {
         } 
 
     }
-    else if (request.type === "SessionEndRequest") {
+    else if (request.type === "SessionEndedRequest") {
         // added this to handle session end
-        //handleStopIntent(context);
+        handleEndIntent(context);
 
 
     } else {
@@ -377,6 +377,16 @@ function handleStopIntent(context){
                 options.repromptText = "";
                 options.endSession = true;
                 options.attributes = "none";
+                context.succeed(buildResponse(options));
+}
+
+// *********************************************************************
+function handleEndIntent(context){
+            let options = {};    
+                options.speechText = "Catch you later";
+                options.repromptText = "";
+                options.endSession = true;
+                options.attributes = "";
                 context.succeed(buildResponse(options));
 }
 
