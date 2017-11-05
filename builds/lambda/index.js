@@ -441,8 +441,9 @@ function findHotel(item, callback){
     //console.log(item);
     var result = "No hotels match your search.";
     var i = 0;
-while (i<hotels.length){
 
+while (i<hotels.length){
+        
     if (item == hotels[i].hotelName){
         result = "The "+item+" is on bus route # "+hotels[i].routeNumber+". Your boarding location is "+hotels[i].boardingLocation;;
         if(hotels[i].routeNumber == "No Shuttle"){
