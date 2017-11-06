@@ -351,7 +351,7 @@ function handleSpeakerIntent(response, context){
 
     } else {
         options.speechText = "I found no results that matched your search. How else may I help you?";
-        options.repromptText = "Are you still there? Ask me another question or say stop to end this session.";
+        options.repromptText = "Ask me another question or say stop to end this session.";
         options.endSession = false;
         options.attributes = response;
         context.succeed(buildResponse(options));
@@ -402,14 +402,14 @@ function handleRequestIntent(request, context) {
             
             if(library[item]){
                 options.speechText = library[item];
-                options.repromptText = "Are you still there? How else may I help you?";
+                options.repromptText = "Ask me another question or say stop to end this session.";
                 options.endSession = false;
                 context.succeed(buildResponse(options));
         
         } else {
             
             options.speechText = "Sorry. I couldn't find "+item+ " in our library. Ask me something else.";
-            options.repromptText = "Are you still there? How else may I help you?";
+            options.repromptText = "Ask me another question or say stop to end this session.";
             //options.speechText +=getWish();
             // nothing left to do now, so end the session
             options.endSession = false;
@@ -427,7 +427,7 @@ function handleRequestIntent(request, context) {
 function handleHotelIntent(hotelInfo, context) {
     let options = {};    
     options.speechText = hotelInfo;
-    options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
+    options.repromptText = "Ask me another question or say stop to end this session.";
     options.endSession = false;
     options.attributes = "none";
     context.succeed(buildResponse(options));
@@ -440,7 +440,7 @@ function handleBriefingIntent(briefingInfo, context) {
     let options = {};    
     //console.log('handle briefing intent', briefingInfo);
     options.speechText = briefingInfo;
-    options.repromptText = "Are you still there? Ask me a question or say, Stop, to end this session.";
+    options.repromptText = "Ask me another question or say stop to end this session.";
     options.endSession = false;
     options.attributes = "none";
     context.succeed(buildResponse(options));
