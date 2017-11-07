@@ -28,7 +28,7 @@ exports.handler = function(event,context) {
                 handleRequestIntent(request, context)
 
         } else if (request.intent.name === "HotelIntent"){
-        
+            
                 let item = request.intent.slots.Hotels.value;
                 let lowerItem = item.toLowerCase();
                 findHotel(lowerItem, (response)=>{
@@ -90,7 +90,8 @@ exports.handler = function(event,context) {
 
         } 
 
-    }
+    } // ENDS INTENT REQUEST
+    
     else if (request.type === "SessionEndedRequest") {
         // added this to handle session end
         handleEndIntent(context);
@@ -98,15 +99,16 @@ exports.handler = function(event,context) {
 
     } else {
         // we are trying this out
-        //handleStopIntent(context);
+        handleEndIntent(context);
         //handleUnknownIntent(context);
         throw "Unknown Intent";
     }
 
 } catch(e) {
-    context.fail("Exception: "+e);
-    //handleStopIntent(context);
-    throw "Unknown Intent";
+    //context.fail("Exception: "+e);
+    context.fail("Sorry. I don't know the answer to that one.")
+    //handleEndIntent(context);
+    //throw "Unknown Intent";
 }
 }
 
@@ -396,6 +398,10 @@ function handleEndIntent(context){
 function handleRequestIntent(request, context) {
             //console.log('i am at handle request intent');
             let options = {};
+            
+            // we found a scenario where .value doesn't exist ... 
+            // so we need to test for it first
+            if(request.intent.slots.Item.value){
             var item = request.intent.slots.Item.value;
             item = item.toLowerCase();
             console.log(library[item]);
@@ -418,7 +424,16 @@ function handleRequestIntent(request, context) {
 
 
             }
-        
+        } else {
+
+            options.speechText = "Sorry. I couldn't find the answer to that question. Ask me something else.";
+            options.repromptText = "Ask me another question or say stop to end this session.";
+            //options.speechText +=getWish();
+            // nothing left to do now, so end the session
+            options.endSession = false;
+            options.attributes = "none";
+            context.succeed(buildResponse(options));
+        }
 
 }
 
