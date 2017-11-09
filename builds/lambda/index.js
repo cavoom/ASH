@@ -28,7 +28,7 @@ exports.handler = function(event,context) {
                 handleRequestIntent(request, context)
 
         } else if (request.intent.name === "HotelIntent"){
-        
+            
                 let item = request.intent.slots.Hotels.value;
                 let lowerItem = item.toLowerCase();
                 findHotel(lowerItem, (response)=>{
@@ -90,7 +90,8 @@ exports.handler = function(event,context) {
 
         } 
 
-    }
+    } // ENDS INTENT REQUEST
+    
     else if (request.type === "SessionEndedRequest") {
         // added this to handle session end
         handleEndIntent(context);
@@ -98,15 +99,16 @@ exports.handler = function(event,context) {
 
     } else {
         // we are trying this out
-        //handleStopIntent(context);
+        handleEndIntent(context);
         //handleUnknownIntent(context);
         throw "Unknown Intent";
     }
 
 } catch(e) {
-    context.fail("Exception: "+e);
-    //handleStopIntent(context);
-    throw "Unknown Intent";
+    //context.fail("Exception: "+e);
+    context.fail("Sorry. I don't know the answer to that one.")
+    //handleEndIntent(context);
+    //throw "Unknown Intent";
 }
 }
 
@@ -244,7 +246,7 @@ function buildResponse(options) {
 function handleNextIntent(response, context){
     let options = {};
     if(response){
-        if(response.length > 0){
+        if(response.length > 1){
         var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
         var theDay = new Date(response[0].sessionStartTime);
         theDay = theDay.getDay();
@@ -253,7 +255,16 @@ function handleNextIntent(response, context){
         options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
         options.endSession = false;
         options.attributes = response;
-    
+    } else if(response.length==1){
+        var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+        var theDay = new Date(response[0].sessionStartTime);
+        theDay = theDay.getDay();
+        theDay = daysOfWeek[theDay];
+        options.speechText = "On " + theDay + " at " + response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId;
+        options.repromptText = "You can search for another session or ask me a different question.";
+        options.endSession = false;
+        options.attributes = response;
+        
         } else {
 
         options.speechText = "There are no other sessions that match your search. You can ask me another question or just say stop.";
@@ -287,7 +298,7 @@ function handleSessionIntent(response, context){
     theDay = theDay.getDay();
     theDay = daysOfWeek[theDay];
 
-            if(response.length>11){
+            if(response.length>10){
                 sessionsFound = response.length; // this is saved for the response feedback
                 var sliced = response.slice(0,10);
                 sessionsKept = sliced.length;
@@ -296,7 +307,11 @@ function handleSessionIntent(response, context){
                 options.endSession = false;
                 options.attributes = sliced;
                 context.succeed(buildResponse(options));
-            } else {
+                // Else if response.length = 1
+                // do stuff
+
+            // More than 1 session but less than 10    
+            } else if(response.length <= 10 && response.length > 1){
                 options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
                 options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
@@ -304,12 +319,21 @@ function handleSessionIntent(response, context){
                 context.succeed(buildResponse(options)); 
             }
 
-    } else {
-        options.speechText = "I found no results that matched your search. Ask me another question or exit by saying Stop.";
-        options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
-        options.endSession = false;
-        options.attributes = response;
-        context.succeed(buildResponse(options));
+            else if(response.length == 1){
+                options.speechText = "I found 1 session that matched your search. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId;
+                options.repromptText = "You can ask me another question or exit by saying Stop.";
+                options.endSession = false;
+                options.attributes = response;
+                context.succeed(buildResponse(options)); 
+
+            }
+
+            } else {
+            options.speechText = "I found no results that matched your search. Ask me another question or exit by saying Stop.";
+            options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
+            options.endSession = false;
+            options.attributes = response;
+            context.succeed(buildResponse(options));
     }
 
 }
@@ -396,6 +420,10 @@ function handleEndIntent(context){
 function handleRequestIntent(request, context) {
             //console.log('i am at handle request intent');
             let options = {};
+            
+            // we found a scenario where .value doesn't exist ... 
+            // so we need to test for it first
+            if(request.intent.slots.Item.value){
             var item = request.intent.slots.Item.value;
             item = item.toLowerCase();
             console.log(library[item]);
@@ -418,7 +446,16 @@ function handleRequestIntent(request, context) {
 
 
             }
-        
+        } else {
+
+            options.speechText = "Sorry. I couldn't find the answer to that question. Ask me something else.";
+            options.repromptText = "Ask me another question or say stop to end this session.";
+            //options.speechText +=getWish();
+            // nothing left to do now, so end the session
+            options.endSession = false;
+            options.attributes = "none";
+            context.succeed(buildResponse(options));
+        }
 
 }
 

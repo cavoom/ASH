@@ -6,9 +6,11 @@
 
 // 3. finds keywords
 
+// 4. figures out how many records start at 00:00
+
 
 var jsonfile = require('jsonfile'); // for saving to JSON
-var sessionData = require('./sessions110517.json');
+var sessionData = require('./sessions110717.json');
 console.log('total records: '+ sessionData.length);
 
 var a=0;
@@ -20,6 +22,7 @@ var item = testWord.toLowerCase();
 var hasKeywords = [];
 var speakers = [];
 var theSpeaker = "";
+
 
 // Find the word
 // while(a<sessionData.length){
@@ -33,14 +36,34 @@ var theSpeaker = "";
 // }
 
 //Find the results with keywords and save
-findEm((results)=>{
-    var file = './haveKeywords.json'
+// findEm((results)=>{
+//     var file = './haveKeywords.json'
+//     var obj = results;
+//     jsonfile.writeFile(file, obj, {spaces: 2}, function (err) {
+//     console.log(results.length+' have keywords');
+//     });
+
+// })
+
+// badStartTime((results)=>{
+//     var file = './hasBadStartTime.json'
+//     var obj = results;
+//     jsonfile.writeFile(file, obj, {spaces: 2}, function (err) {
+//     console.log(results.length+' have bad start times');
+//     });
+
+// })
+
+    questionableStartTime((results)=>{
+    var file = './questionableStartTime.json'
     var obj = results;
     jsonfile.writeFile(file, obj, {spaces: 2}, function (err) {
-    console.log(results.length+' have keywords');
+    console.log(results.length+' have questionable start times');
     });
 
 })
+
+
 
 // Find the doctor names and create a doctors item list
 // findSpeakers((theSpeakers)=>{
@@ -95,6 +118,65 @@ while(a<sessionData.length){
             id: sessionData[a].sessionId,
             title: sessionData[a].sessionTitle,
             keywords: sessionData[a].keywords
+            }
+            );
+    }
+    a++;
+    } 
+callback(hasKeywords);
+}
+
+// ************************************************************
+function badStartTime(callback){
+while(a<sessionData.length){
+
+    if(sessionData[a].startTime == "00:00:00" ){
+        hasKeywords.push({
+            id: sessionData[a].sessionId,
+            title: sessionData[a].sessionTitle,
+            sessionStartTime: sessionData[a].sessionStartTime,
+            sessionEndTime: sessionData[a].sessionEndTime,
+            startTime: sessionData[a].startTime,
+            endTime: sessionData[a].endTime,
+            sessionLocation: sessionData[a].sessionLocation,
+            key: sessionData[a].key_AorB,
+            property: sessionData[a].property,
+            paperTitle: sessionData[a].papertitle,
+            keywords: sessionData[a].keywords,
+            
+            }
+            );
+    }
+    a++;
+    } 
+callback(hasKeywords);
+}
+
+
+// ************************************************************
+function questionableStartTime(callback){
+    var startTime = new Date();
+    var sessionStartHour = 7;
+
+while(a<sessionData.length){
+
+    startTime = new Date(sessionData[a].sessionStartTime);
+    startTime = startTime.getHours();
+
+    if(startTime < sessionStartHour){
+        hasKeywords.push({
+            id: sessionData[a].sessionId,
+            title: sessionData[a].sessionTitle,
+            sessionStartTime: sessionData[a].sessionStartTime,
+            sessionEndTime: sessionData[a].sessionEndTime,
+            startTime: sessionData[a].startTime,
+            endTime: sessionData[a].endTime,
+            sessionLocation: sessionData[a].sessionLocation,
+            key: sessionData[a].key_AorB,
+            property: sessionData[a].property,
+            paperTitle: sessionData[a].papertitle,
+            keywords: sessionData[a].keywords,
+            
             }
             );
     }

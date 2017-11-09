@@ -1,12 +1,11 @@
 // This function combines first and last names, adds doctor
 // and removes periods if there are any in the name
 // changes all to lower case
-// for some reason, it changes the original file as well
-// not sure why??
+
 // WE NEED to also add a routine that adds name without the middle initial
 
 var jsonfile = require('jsonfile');
-var originalData = require('../lambda/session_json_data.json');
+var originalData = require('./sessions110717.json');
 var newData = originalData;
 
 var i= 0;

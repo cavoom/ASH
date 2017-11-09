@@ -2005,7 +2005,7 @@
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "residence inn midtown ",
+   "hotelName": "residence inn midtown",
    "routeNumber": "7",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -2035,7 +2035,7 @@
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "residence inn atlanta midtown peachtree at 17th ",
+   "hotelName": "residence inn atlanta midtown peachtree at 17th",
    "routeNumber": "8",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
@@ -2050,7 +2050,7 @@
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
  {
-   "hotelName": "midtown atlanta peachtree residence inn ",
+   "hotelName": "midtown atlanta peachtree residence inn",
    "routeNumber": "8",
    "boardingLocation": "Upper International Blvd. next to Mercedes-Benz Stadium"
  },
