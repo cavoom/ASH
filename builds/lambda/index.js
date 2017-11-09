@@ -54,6 +54,9 @@ exports.handler = function(event,context) {
                     // If not, create orderedResponse = [];
                     // make sure that handleSessionIntent handles a blank orderedResponse
                     sortResult(searchResults,(orderedResponse)=>{
+
+                    // STOPPED HERE // REMOVE DUPES // CREATE FUNCTION TO DEDUPE ************************************
+
                         handleSessionIntent(orderedResponse, context);
                     })
                    
