@@ -8,6 +8,8 @@ var sessions = require('./sessions.json');
 var sessionsFound = 0; // this saves the number of sessions found in search
 var sessionsKept = 0; // tells you how many we are going to tell you about
 
+const APP_ID = "amzn1.ask.skill.ae80c58c-95aa-4cd0-855e-6aa2b75ca800";
+
 exports.handler = function(event,context) {
 
     try {
