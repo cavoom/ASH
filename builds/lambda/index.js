@@ -166,7 +166,7 @@ function sortResult(searchResults, callback){
         searchResults.sort(function(a, b){
         var dateA=new Date(a.sessionStartTime), dateB=new Date(b.sessionStartTime);
         return dateA-dateB });
-        //console.log('made it through sort results');
+        console.log('at sort and found ',searchResults.length);
         }
         callback(searchResults);
 }
@@ -175,20 +175,20 @@ function findSession(item, callback){
     //console.log('made it to find session');
     var i=0;
     var searchResults = [];
-    //console.log('sessions length is ', sessions.length);
-    //var timeNow = new Date();
+    var title = "nothingHere";
+    var keywords = "nothingHere";
+
     while (i < sessions.length){
-        var title = sessions[i].sessionTitle;
+        title = "";
+        keywords = "";
+        title = sessions[i].sessionTitle;
         title = title.toLowerCase();
-        //var startTime = sessions[i].sessionStartTime;
-        //startTime = new Date(startTime);
-        //var endTime = sessions[i].sessionEndTime;
-        //endTime = new Date(endTime);
+        if(sessions[i].keywords){
+            keywords = sessions[i].keywords;
+            keywords = keywords.toLowerCase();}
 
         // Get the all inclusive list
-        if(title.includes(item)){
-        //if(title.includes(item) && timeNow >= startTime && timeNow < endTime){
-            //console.log(allData[i].sessionId+"-"+allData[i].sessionTitle);
+        if(title.includes(item) || keywords.includes(item)){
             searchResults.push(sessions[i]);
         }
 
@@ -294,18 +294,35 @@ function handleSessionIntent(response, context){
     let options = {};
     let number = response.length;
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
-
+    var theDayValue = "";
     if(response.length != 0){
 
     var theDay = new Date(response[0].sessionStartTime);
-    theDay = theDay.getDay();
-    theDay = daysOfWeek[theDay];
+    theDayValue = theDay.getDay();
+    theDayValue = daysOfWeek[theDayValue];
+   
+   // *** STOPPED HERE !!! NEED TO CONVERT THE MILITARY TIME TO ET AND ADD AM/PM
+   // *** SEE THE ROUTINE DEVELOPED IN THE SANDBOX
+
+    var theHour = theDay.getHours();
+    var theMinutes = theDay.getMinutes();
+    var theStartTime = theHour+":"+theMinutes;
+    //console.log(theStartTime);
+    
+    var theSessionTitle = "";
+
+        if(response[0].papertitle !=""){
+            theSessionTitle = response[0].paperTitle;
+            } else {
+                theSessionTitle = response[0].sessionTitle;
+                }
+
 
             if(response.length>10){
                 sessionsFound = response.length; // this is saved for the response feedback
                 var sliced = response.slice(0,10);
                 sessionsKept = sliced.length;
-                options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+                options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDayValue + " at "+theStartTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation + ". Say next to hear another.";
                 options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = sliced;
@@ -315,7 +332,7 @@ function handleSessionIntent(response, context){
 
             // More than 1 session but less than 10    
             } else if(response.length <= 10 && response.length > 1){
-                options.speechText = "I found " + number + " sessions that matched your search. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId + ". say next to hear another.";
+                options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDayValue + " at "+theStartTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation + ". Say next to hear another.";
                 options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = response;
@@ -323,8 +340,8 @@ function handleSessionIntent(response, context){
             }
 
             else if(response.length == 1){
-                options.speechText = "I found 1 session that matched your search. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in room number " + response[0].sessionId;
-                options.repromptText = "You can ask me another question or exit by saying Stop.";
+                options.speechText = "I found 1 session that matched your search. On "+ theDayValue + " at "+theStartTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation;
+                options.repromptText = "Ask me another question or exit by saying stop.";
                 options.endSession = false;
                 options.attributes = response;
                 context.succeed(buildResponse(options)); 
