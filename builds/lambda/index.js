@@ -290,7 +290,7 @@ function handleNextIntent(response, context){
 // *********************************************************************
 
 function handleSessionIntent(response, context){
-    //console.log('here is my response to handle '+ response);
+    console.log('there are this many: '+ response.length);
     let options = {};
     let number = response.length;
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
@@ -300,19 +300,11 @@ function handleSessionIntent(response, context){
     var theDay = new Date(response[0].sessionStartTime);
     theDayValue = theDay.getDay();
     theDayValue = daysOfWeek[theDayValue];
-   
-   // *** STOPPED HERE !!! NEED TO CONVERT THE MILITARY TIME TO ET AND ADD AM/PM
-   // *** SEE THE ROUTINE DEVELOPED IN THE SANDBOX
-
-    var theHour = theDay.getHours();
-    var theMinutes = theDay.getMinutes();
-    var theStartTime = theHour+":"+theMinutes;
-    //console.log(theStartTime);
     
     var theSessionTitle = "";
 
         if(response[0].papertitle !=""){
-            theSessionTitle = response[0].paperTitle;
+            theSessionTitle = response[0].papertitle;
             } else {
                 theSessionTitle = response[0].sessionTitle;
                 }
@@ -322,7 +314,7 @@ function handleSessionIntent(response, context){
                 sessionsFound = response.length; // this is saved for the response feedback
                 var sliced = response.slice(0,10);
                 sessionsKept = sliced.length;
-                options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDayValue + " at "+theStartTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation + ". Say next to hear another.";
+                options.speechText = "I found " + number + " sessions that matched your search. Here are the " + sessionsKept+" sessions coming up next. On "+ theDayValue + " at "+response[0].startTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation + ". Say next to hear another.";
                 options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = sliced;
@@ -332,7 +324,7 @@ function handleSessionIntent(response, context){
 
             // More than 1 session but less than 10    
             } else if(response.length <= 10 && response.length > 1){
-                options.speechText = "I found " + number + " sessions that matched your search. Here are the "+sessionsKept+" sessions coming up next. On "+ theDayValue + " at "+theStartTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation + ". Say next to hear another.";
+                options.speechText = "I found " + number + " sessions that matched your search. Here are the " + response.length+" sessions coming up next. On "+ theDayValue + " at "+response[0].startTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation + ". Say next to hear another.";
                 options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = response;
@@ -340,7 +332,7 @@ function handleSessionIntent(response, context){
             }
 
             else if(response.length == 1){
-                options.speechText = "I found 1 session that matched your search. On "+ theDayValue + " at "+theStartTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation;
+                options.speechText = "I found 1 session that matched your search. On "+ theDayValue + " at " + response[0].startTime + " , " + theSessionTitle + " is going on in " + response[0].sessionLocation;
                 options.repromptText = "Ask me another question or exit by saying stop.";
                 options.endSession = false;
                 options.attributes = response;

@@ -10,7 +10,7 @@
 
 
 var jsonfile = require('jsonfile'); // for saving to JSON
-var sessionData = require('./111317.json');
+var sessionData = require('../lambda/sessions.json');
 console.log('Analyze the data');
 console.log('total records: '+ sessionData.length);
 
@@ -44,25 +44,25 @@ var theSpeaker = "";
 //     console.log(results.length+' have keywords');
 //     });
 
-// })
+//  })
 
-// badStartTime((results)=>{
-//     var file = './hasBadStartTime.json'
-//     var obj = results;
-//     jsonfile.writeFile(file, obj, {spaces: 2}, function (err) {
-//     console.log(results.length+' have bad start times');
-//     });
-
-// })
-    // has a questionable start time
-    questionableStartTime((results)=>{
-    var file = './questionableStartTime.json'
+badStartTime((results)=>{
+    var file = './hasBadStartTime.json'
     var obj = results;
     jsonfile.writeFile(file, obj, {spaces: 2}, function (err) {
-    console.log(results.length+' have questionable start times');
+    console.log(results.length+' have bad start times');
     });
 
 })
+    // has a questionable start time
+//     questionableStartTime((results)=>{
+//     var file = './questionableStartTime.json'
+//     var obj = results;
+//     jsonfile.writeFile(file, obj, {spaces: 2}, function (err) {
+//     console.log(results.length+' have questionable start times');
+//     });
+
+// })
 
 
 
@@ -123,7 +123,7 @@ while(a<sessionData.length){
             );
     }
     a++;
-    } 
+}   
 callback(hasKeywords);
 }
 
@@ -157,7 +157,8 @@ callback(hasKeywords);
 // ************************************************************
 function questionableStartTime(callback){
     var startTime = new Date();
-    var sessionStartHour = 7;
+    var sessionStartHour = 6;
+    a=0;
 
 while(a<sessionData.length){
 
