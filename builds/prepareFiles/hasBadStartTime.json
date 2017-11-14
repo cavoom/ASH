@@ -10,7 +10,7 @@
     "key": "A",
     "property": "Omni Hotel at CNN Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11217",
@@ -23,7 +23,7 @@
     "key": "A",
     "property": "Omni Hotel at CNN Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11217",
@@ -36,7 +36,7 @@
     "key": "A",
     "property": "Omni Hotel at CNN Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11220",
@@ -283,7 +283,7 @@
     "key": "A",
     "property": "Georgia World Congress Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11245",
@@ -296,7 +296,7 @@
     "key": "A",
     "property": "Georgia World Congress Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11246",
@@ -309,7 +309,7 @@
     "key": "A",
     "property": "Georgia World Congress Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11246",
@@ -322,7 +322,7 @@
     "key": "A",
     "property": "Georgia World Congress Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11275",
@@ -2132,84 +2132,6 @@
     "keywords": ""
   },
   {
-    "id": "11752",
-    "title": "Plenary Scientific Session",
-    "sessionStartTime": "2017-12-10T14:00:00Z",
-    "sessionEndTime": "2017-12-10T16:00:00Z",
-    "startTime": "00:00:00",
-    "endTime": "00:00:00",
-    "sessionLocation": "Bldg C- Lvl 1- Hall C2-C3",
-    "key": "A",
-    "property": "Georgia World Congress Center",
-    "paperTitle": "",
-    "keywords": ""
-  },
-  {
-    "id": "11752",
-    "title": "Plenary Scientific Session",
-    "sessionStartTime": "2017-12-10T14:00:00Z",
-    "sessionEndTime": "2017-12-10T16:00:00Z",
-    "startTime": "00:00:00",
-    "endTime": "00:00:00",
-    "sessionLocation": "Bldg C- Lvl 1- Hall C2-C3",
-    "key": "A",
-    "property": "Georgia World Congress Center",
-    "paperTitle": "",
-    "keywords": ""
-  },
-  {
-    "id": "11752",
-    "title": "Plenary Scientific Session",
-    "sessionStartTime": "2017-12-10T14:00:00Z",
-    "sessionEndTime": "2017-12-10T16:00:00Z",
-    "startTime": "00:00:00",
-    "endTime": "00:00:00",
-    "sessionLocation": "Bldg C- Lvl 1- Hall C2-C3",
-    "key": "A",
-    "property": "Georgia World Congress Center",
-    "paperTitle": "",
-    "keywords": ""
-  },
-  {
-    "id": "11752",
-    "title": "Plenary Scientific Session",
-    "sessionStartTime": "2017-12-10T14:00:00Z",
-    "sessionEndTime": "2017-12-10T16:00:00Z",
-    "startTime": "00:00:00",
-    "endTime": "00:00:00",
-    "sessionLocation": "Bldg C- Lvl 1- Hall C2-C3",
-    "key": "A",
-    "property": "Georgia World Congress Center",
-    "paperTitle": "",
-    "keywords": ""
-  },
-  {
-    "id": "11752",
-    "title": "Plenary Scientific Session",
-    "sessionStartTime": "2017-12-10T14:00:00Z",
-    "sessionEndTime": "2017-12-10T16:00:00Z",
-    "startTime": "00:00:00",
-    "endTime": "00:00:00",
-    "sessionLocation": "Bldg C- Lvl 1- Hall C2-C3",
-    "key": "A",
-    "property": "Georgia World Congress Center",
-    "paperTitle": "",
-    "keywords": ""
-  },
-  {
-    "id": "11752",
-    "title": "Plenary Scientific Session",
-    "sessionStartTime": "2017-12-10T14:00:00Z",
-    "sessionEndTime": "2017-12-10T16:00:00Z",
-    "startTime": "00:00:00",
-    "endTime": "00:00:00",
-    "sessionLocation": "Bldg C- Lvl 1- Hall C2-C3",
-    "key": "A",
-    "property": "Georgia World Congress Center",
-    "paperTitle": "",
-    "keywords": ""
-  },
-  {
     "id": "11942",
     "title": "Featured Topic Discussion: Hemophilia Revolution",
     "sessionStartTime": "2017-12-10T11:15:00Z",
@@ -2246,7 +2168,7 @@
     "key": "A",
     "property": "Georgia World Congress Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "11943",
@@ -2259,7 +2181,7 @@
     "key": "A",
     "property": "Georgia World Congress Center",
     "paperTitle": "",
-    "keywords": "NULL"
+    "keywords": ""
   },
   {
     "id": "12020",

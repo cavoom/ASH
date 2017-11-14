@@ -10,7 +10,8 @@
 
 
 var jsonfile = require('jsonfile'); // for saving to JSON
-var sessionData = require('./sessions110717.json');
+var sessionData = require('./111317.json');
+console.log('Analyze the data');
 console.log('total records: '+ sessionData.length);
 
 var a=0;
@@ -53,7 +54,7 @@ var theSpeaker = "";
 //     });
 
 // })
-
+    // has a questionable start time
     questionableStartTime((results)=>{
     var file = './questionableStartTime.json'
     var obj = results;
@@ -163,7 +164,7 @@ while(a<sessionData.length){
     startTime = new Date(sessionData[a].sessionStartTime);
     startTime = startTime.getHours();
 
-    if(startTime < sessionStartHour){
+    if(startTime <= sessionStartHour){
         hasKeywords.push({
             id: sessionData[a].sessionId,
             title: sessionData[a].sessionTitle,
