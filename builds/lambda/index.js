@@ -168,7 +168,7 @@ function sortResult(searchResults, callback){
         searchResults.sort(function(a, b){
         var dateA=new Date(a.sessionStartTime), dateB=new Date(b.sessionStartTime);
         return dateA-dateB });
-        console.log('at sort and found ',searchResults.length);
+        //console.log('at sort and found ',searchResults.length);
         }
         callback(searchResults);
 }
@@ -389,8 +389,8 @@ function handleSpeakerIntent(response, context){
                 options.attributes = sliced;
                 context.succeed(buildResponse(options));
             } else {
-                options.speechText = "I found " + number + " sessions where " + response[0].combinedName + " is speaking. Here are the sessions coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on at " + response[0].sessionLocation + ". say next to hear another.";
-                options.repromptText = "Just say next or ask me another question. You can exit by saying Stop.";
+                options.speechText = "I found " + number + " session where " + response[0].combinedName + " is speaking. Here is the session coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in " + response[0].sessionLocation + ". ";
+                options.repromptText = "You can ask me another question or exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = response;
                 context.succeed(buildResponse(options)); 
