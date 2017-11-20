@@ -740,6 +740,16 @@
    "boardingLocation": "Walk to hotel"
  },
  {
+   "hotelName": "the glenn hotel",
+   "routeNumber": "No Shuttle",
+   "boardingLocation": "Walk to hotel"
+ },
+ {
+   "hotelName": "the glenn",
+   "routeNumber": "No Shuttle",
+   "boardingLocation": "Walk to hotel"
+ },
+ {
    "hotelName": "glenn",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
@@ -1784,6 +1794,11 @@
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
+  {
+   "hotelName": "the cnn center omni hotel",
+   "routeNumber": "No Shuttle",
+   "boardingLocation": "Walk to hotel"
+ },
  {
    "hotelName": "omni hotel at cnn center",
    "routeNumber": "No Shuttle",
@@ -2185,22 +2200,22 @@
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "st. regis atlanta",
+   "hotelName": "saint regis atlanta",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "st. regis hotel",
+   "hotelName": "saint regis hotel",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "atlanta st. regis",
+   "hotelName": "atlanta saint regis",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },
  {
-   "hotelName": "st. regis",
+   "hotelName": "saint regis",
    "routeNumber": "17",
    "boardingLocation": "Outside Building C"
  },

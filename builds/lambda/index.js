@@ -545,7 +545,7 @@ while (i<hotels.length){
     } 
     i++;
 }
-//console.log(result);
+//else { find closest match to ask // sessions, speakers, hotels }
 callback (result);
 }
 
