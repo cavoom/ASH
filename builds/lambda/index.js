@@ -51,15 +51,13 @@ exports.handler = function(event,context) {
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (searchResults)=>{
-                    //console.log('i found '+searchResults.length+' sessions');
-                    // IF searchResults.length > 0
-                    // If not, create orderedResponse = [];
-                    // make sure that handleSessionIntent handles a blank orderedResponse
+                    console.log('i found '+searchResults.length+' sessions NOT sorted');
                     sortResult(searchResults,(orderedResponse)=>{
-
-                    // STOPPED HERE // REMOVE DUPES // CREATE FUNCTION TO DEDUPE ************************************
-
-                        handleSessionIntent(orderedResponse, context);
+                        console.log('i found '+orderedResponse.length+' sessions SORTED ');
+                        removeOld(orderedResponse,(cleaned)=>{
+                            console.log('i found '+cleaned.length+' sessions CLEANED');
+                            handleSessionIntent(cleaned, context);
+                        })
                     })
                    
                 });
@@ -160,24 +158,6 @@ function findSpeaker(item, callback){
 //console.log('search results: ', searchResults);
 callback(searchResults);
 
-}
-
-// *********************************************************************
-function removeOld(sortedResults, callback){
-    var rightNow = new Date();
-    var theStartTime = new Date();
-    /// *** CONVERT DATE TO STRING
-    var i=0;
-    var removedOldies = [];
-    while(i<sortedResults.length){
-        theStartTime = new Date(sortedResults[i].sessionStartTime)
-        if(theStartTime >= rightNow)
-
-        i++;
-    }
-
-    console.log(removedOldies);
-    callback(removedOldies);
 }
 
 
@@ -580,3 +560,24 @@ while (i<briefings.length){
 //console.log(result);
 callback (result);
 }
+
+// **********************************************************************
+function removeOld(orderedResponse, callback){
+    var i=0;
+    var currentTime = new Date();
+    var theEndTime = new Date();
+    var cleaned = [];
+    //console.log('the current time: ', currentTime);
+    //console.log('the length of orderedResponse is ', orderedResponse.length);
+    //console.log('the first record is ', orderedResponse[0]);
+    while(i<orderedResponse.length){
+        theEndTime = new Date(orderedResponse[i].sessionEndTime);
+        //console.log(theStartTime.getUTCDate());
+        if(theEndTime > currentTime){
+            //console.log('yes');
+            cleaned.push(orderedResponse[i]);
+            }
+            i++;
+        }
+        callback(cleaned);
+    }
