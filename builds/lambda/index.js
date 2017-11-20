@@ -163,6 +163,25 @@ callback(searchResults);
 }
 
 // *********************************************************************
+function removeOld(sortedResults, callback){
+    var rightNow = new Date();
+    var theStartTime = new Date();
+    /// *** CONVERT DATE TO STRING
+    var i=0;
+    var removedOldies = [];
+    while(i<sortedResults.length){
+        theStartTime = new Date(sortedResults[i].sessionStartTime)
+        if(theStartTime >= rightNow)
+
+        i++;
+    }
+
+    console.log(removedOldies);
+    callback(removedOldies);
+}
+
+
+// *********************************************************************
 function sortResult(searchResults, callback){
         if(searchResults.length>0){
         searchResults.sort(function(a, b){
