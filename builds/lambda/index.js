@@ -51,11 +51,11 @@ exports.handler = function(event,context) {
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
                 findSession(item, (searchResults)=>{
-                    console.log('i found '+searchResults.length+' sessions NOT sorted');
+                    //console.log('i found '+searchResults.length+' sessions NOT sorted');
                     sortResult(searchResults,(orderedResponse)=>{
-                        console.log('i found '+orderedResponse.length+' sessions SORTED ');
+                        //console.log('i found '+orderedResponse.length+' sessions SORTED ');
                         removeOld(orderedResponse,(cleaned)=>{
-                            console.log('i found '+cleaned.length+' sessions CLEANED');
+                            //console.log('i found '+cleaned.length+' sessions CLEANED');
                             handleSessionIntent(cleaned, context);
                         })
                     })
