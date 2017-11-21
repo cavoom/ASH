@@ -536,21 +536,23 @@ function findBriefing(callback){
     //console.log(item);
     var result = "There are no briefings available right now.";
     let nowTime = new Date();
-    //console.log(nowTime);
+    console.log('NOW time ', nowTime);
     var i = 0;
 
 while (i<briefings.length){
     var sessionStart = briefings[i].startTime;
     sessionStart = new Date(sessionStart);
+    //console.log('START time ', sessionStart);
     var sessionEnd = briefings[i].endTime;
     sessionEnd = new Date(sessionEnd);
+     //console.log('END time ', sessionEnd);
 
     if(nowTime >= sessionStart && nowTime <= sessionEnd) {
     result = briefings[i].greeting+briefings[i].weather+
     briefings[i].story1+briefings[i].story2+briefings[i].story3
     +briefings[i].story4+briefings[i].story5+briefings[i].story6
     +briefings[i].story7+briefings[i].story8+briefings[i].story9;
-    //console.log('found one');
+    console.log('found one', briefings[i].date);
     break;
     } else {
         //console.log('not it')

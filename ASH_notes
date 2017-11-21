@@ -1,19 +1,24 @@
+JSON
+Use Code Validator and download
+https://codebeautify.org/jsonvalidator
+
+ASH feed
+Use this link for the ASH Sessions feed
+http://webapps.hematology.org/ash_alexa/api/session
+
 I am using this site to convert the HOTELS csv to JSON:
 http://www.convertcsv.com/csv-to-json.htm
 
 Convert the event.json to lowercase so that we can compare to our database
 which is all in lower case when we do a lookup!
 
-
-Here is the production JSON feed from ASH:
+Here is the pre-production test JSON feed from ASH:
 http://test-apps.hematology.org/ash_alexa/api/session
 
 
 Here is the program to download it:
 https://jsonformatter.org/json-pretty-print
 
-JSON
-Use Code Validator and download
-https://codebeautify.org/jsonvalidator
+
 
 
