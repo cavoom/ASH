@@ -2,7 +2,7 @@
  {
    "date": "12/8 from 7AM to 11:30AM",
    "startTime": "2017-12-08T07:00Z",
-   "endTime": "2017-12-08T11:30Z",
+   "endTime": "2017-12-08T16:30Z",
    "greeting": "Welcome to ash-lanta! This is the current ash Flash Briefing for today.",
    "weather": "<break time=\"1s\"/>It's 59 degrees and sunny today. There is a 10% chance of rain.",
    "story1": "<break time=\"1.5s\"/>If you are looking for registration or need to pick up meeting materials, you can find them in Hall A-1.",
@@ -17,8 +17,8 @@
  },
  {
    "date": "12/8 from 11:31AM to 7PM",
-   "startTime": "2017-12-08T11:31Z",
-   "endTime": "2017-12-08T19:00Z",
+   "startTime": "2017-12-08T16:31Z",
+   "endTime": "2017-12-09T00:00Z",
    "greeting": "Welcome to ash-lanta! This is the current ash Flash Briefing for Friday.",
    "weather": "<break time=\"1s\"/>It's 59 degrees and sunny today. There is a 10% chance of rain.",
    "story1": "If you are looking for registration or need to pick up meeting materials, you can find them in Hall A-1.",
@@ -33,8 +33,8 @@
  },
  {
    "date": "12/9 from 6AM to 9AM",
-   "startTime": "2017-12-09T06:00Z",
-   "endTime": "2017-12-09T09:00Z",
+   "startTime": "2017-12-09T11:00Z",
+   "endTime": "2017-12-09T14:00Z",
    "greeting": "Welcome to ash-lanta! This is the current ash Flash Briefing for Saturday.",
    "weather": "<break time=\"1s\"/>It's 59 degrees and sunny today. There is a 10% chance of rain.",
    "story1": "The Global Capacity-Building Showcase is a new annual meeting poster category designed to showcase research and capacity-building initiatives in lower and middle income countries. Be sure to check these out in Hall A-2.",
@@ -49,8 +49,8 @@
  },
  {
    "date": "12/9 from 9AM to 10:59AM",
-   "startTime": "2017-11-20T07:00Z",
-   "endTime": "2017-11-30T23:59Z",
+   "startTime": "2017-12-09T12:00Z",
+   "endTime": "2017-12-09T15:59Z",
    "greeting": "Welcome to ash-lanta! This is the current ash Flash Briefing for Saturday.",
    "weather": "<break time=\"1s\"/>It's 59 degrees and sunny today. There is a 10% chance of rain.",
    "story1": "Coffee is available from 9:00 AM until 9:30 AM in the Poster Hall in Hall A-2. You can view posters there all day too.",
@@ -65,8 +65,8 @@
  },
  {
    "date": "12/9 from 11AM to 12:15PM",
-   "startTime": "2017-11-20T07:00Z",
-   "endTime": "2017-11-30T23:59Z",
+   "startTime": "2017-12-09T16:00Z",
+   "endTime": "2017-12-09T17:15",
    "greeting": "Welcome to ash-lanta!  This is the current ash Flash Briefing for Saturday.",
    "weather": "<break time=\"1s\"/>It's 59 degrees and sunny today. There is a 10% chance of rain.",
    "story1": "Lunch is available for purchase in various locations throughout the convention center, including in the exhibit hall where there is plenty of seating available.  The new restaurant called Social Table in the B Building is very popular so please plan accordingly.",
@@ -80,7 +80,7 @@
    "story9": "ash offers dedicated lounges that will be available for nursing mothers in safe, accessible areas throughout the convention center. Each nursing mother’s lounge will provide a private, comfortable area equipped with lockable doors, furniture, and power outlets to use for pumping sessions during the ash annual meeting. A refrigerator will be available in the child care room for safe storage. For exact lactation room locations, please refer to the annual meeting app or to the printed ash Campus Map."
  },
  {
-   "date": "12/9 from 12:16PM to 3PM",
+   "date": "12/9 from 12:16PM to 3PM", /// *** STOPPED HERE
    "startTime": "2017-11-20T07:00Z",
    "endTime": "2017-11-30T23:59Z",
    "greeting": "Welcome to ash-lanta! This is the current ash Flash Briefing for Saturday.",

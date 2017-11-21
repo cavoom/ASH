@@ -1,5 +1,5 @@
 'use strict';
-
+// merging with master branch
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 var briefings = require('./briefing.json');
