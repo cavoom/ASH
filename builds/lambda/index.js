@@ -8,6 +8,8 @@ var sessions = require('./sessions.json');
 var sessionsFound = 0; // this saves the number of sessions found in search
 var sessionsKept = 0; // tells you how many we are going to tell you about
 
+var stringSimilarity = require('string-similarity');
+
 const APP_ID = "amzn1.ask.skill.ae80c58c-95aa-4cd0-855e-6aa2b75ca800";
 
 exports.handler = function(event,context) {
@@ -66,6 +68,9 @@ exports.handler = function(event,context) {
     
                 let item = request.intent.slots.Speaker.value;
                 item = item.toLowerCase();
+
+
+
                 findSpeaker(item, (searchResults)=>{
                     sortResult(searchResults,(orderedResponse)=>{
                         handleSpeakerIntent(orderedResponse, context);
@@ -155,7 +160,11 @@ function findSpeaker(item, callback){
     i++;
 
 }
-//console.log('search results: ', searchResults);
+// ********** STOPPED HERE
+// IF sessions.length = 0, then find BEST MATCH
+// Now need to go through findSpeaker routine again
+// So maybe this needs to go back up near line 67
+
 callback(searchResults);
 
 }
@@ -583,3 +592,16 @@ function removeOld(orderedResponse, callback){
         }
         callback(cleaned);
     }
+
+// *********************************************************************
+// Using this function for speakers to find matches when people don't use
+// "doctor" or "middle name"
+function bestMatch(toMatch, callback){
+    var matches = stringSimilarity.findBestMatch(toMatch, speakers);
+    var theBestMatch = "NoMatch";
+    if(matches.bestMatch.rating > .8){
+        theBestMatch = matches.bestMatch.target
+    } 
+
+    callback(theBestMatch)
+}
