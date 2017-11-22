@@ -1,9 +1,11 @@
 'use strict';
-// merging with master branch
+
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 var briefings = require('./briefing.json');
-//var sessions = require('./session_json_data.json');
+
+var speakers = require('./speakers.json');
+
 var sessions = require('./sessions.json');
 var sessionsFound = 0; // this saves the number of sessions found in search
 var sessionsKept = 0; // tells you how many we are going to tell you about
@@ -68,14 +70,14 @@ exports.handler = function(event,context) {
     
                 let item = request.intent.slots.Speaker.value;
                 item = item.toLowerCase();
-
-
-
-                findSpeaker(item, (searchResults)=>{
-                    sortResult(searchResults,(orderedResponse)=>{
-                        handleSpeakerIntent(orderedResponse, context);
-                    }) 
-                });                
+                bestMatch(item,(theBestMatch)=>{
+                    console.log(theBestMatch);
+                    findSpeaker(theBestMatch, (searchResults)=>{
+                        sortResult(searchResults,(orderedResponse)=>{
+                            handleSpeakerIntent(orderedResponse, context);
+                        }) 
+                    })
+                });              
                 
     } else if (request.intent.name === "NextIntent"){
         if(session.attributes){
@@ -161,9 +163,10 @@ function findSpeaker(item, callback){
 
 }
 // ********** STOPPED HERE
-// IF sessions.length = 0, then find BEST MATCH
-// Now need to go through findSpeaker routine again
-// So maybe this needs to go back up near line 67
+// Before you go to findSpeaker, do the bestMatch function and carry with you
+// IF searchResults.length = 0
+// use bestMatchResults
+// Just parallel it here so that you have a bestMatchResults Array to use
 
 callback(searchResults);
 
@@ -598,10 +601,10 @@ function removeOld(orderedResponse, callback){
 // "doctor" or "middle name"
 function bestMatch(toMatch, callback){
     var matches = stringSimilarity.findBestMatch(toMatch, speakers);
-    var theBestMatch = "NoMatch";
+    var theBestMatch = toMatch; // just leave it as-is if we don't find anything
     if(matches.bestMatch.rating > .8){
         theBestMatch = matches.bestMatch.target
     } 
-
+    console.log('the best match is ',theBestMatch);
     callback(theBestMatch)
 }

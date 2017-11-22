@@ -4,11 +4,8 @@
 // removes dupes
 // and saves to a file
 
-// Using this site to convert it to a CSV file
-// http://www.convertcsv.com/json-to-csv.htm
-
-var jsonfile = require('jsonfile');
-var sessions = require('../lambda/sessions.json');
+var jsonfile = require('../lambda/node_modules/jsonfile');
+var sessions = require('./sessions2.json');
 console.log('Number of sessions: ', sessions.length);
 
 var speakers = [];
@@ -26,7 +23,7 @@ getSpeakers((speakerList)=>{
             replacem(uniques,(replaced)=>{
                 console.log('Replaced: ', replaced.length);
                 saveEm(replaced,(saved)=>{
-                    console.log(saved);
+                    console.log('saved');
             })
             })
 
@@ -57,10 +54,9 @@ function sortEm(result, callback){
 
 // function save them
 function saveEm(obj, callback){
-    var file = './speakersList.json'
-    //var obj = {name: "Dave"};
+    var file = './speakers2.json';
     jsonfile.writeFile(file, obj, {spaces: 2},function (err) {
-        console.error(err)
+        //console.error(err)
     })
     callback('done');
 }
