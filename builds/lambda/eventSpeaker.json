@@ -16,7 +16,7 @@
       "slots": {
         "Speaker": {
           "name": "Speaker",
-          "value": "doctor steve holland"
+          "value": "doctor holland"
         }
       },
       "name": "SpeakerIntent"

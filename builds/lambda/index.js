@@ -124,7 +124,7 @@ exports.handler = function(event,context) {
 
 // *********************************************************************
 function getNext(searchResults,callback){
-    //console.log('search results length: ',searchResults.length);
+    console.log('search results length at getNext: ',searchResults.length);
    if(searchResults){
    
     if(searchResults.length > 0){
@@ -261,8 +261,10 @@ function buildResponse(options) {
 
 function handleNextIntent(response, context){
     let options = {};
+    //console.log('at handleNext', response);
     if(response){
         if(response.length > 1){
+            //console.log('response length greater than 1');
         var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
         var theDay = new Date(response[0].sessionStartTime);
         theDay = theDay.getDay();
@@ -283,12 +285,16 @@ function handleNextIntent(response, context){
     } else if(response.length==1){
         var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
         var theDay = new Date(response[0].sessionStartTime);
+        //console.log(theDay);
         theDay = theDay.getDay();
+        //console.log(theDay);
         theDay = daysOfWeek[theDay];
-        options.speechText = "On " + theDay + " at " + response[0].startTime + " , " + combinedName + " is presenting "+ response[0].sessionTitle + " in " + response[0].sessionLocation;
+        //console.log(theDay);
+        options.speechText = "On " + theDay + " at " + response[0].startTime + " , " + response[0].combinedName + " is presenting "+ response[0].sessionTitle + " in " + response[0].sessionLocation;
         options.repromptText = "You can search for another session or ask me a different question.";
         options.endSession = false;
         options.attributes = response;
+        //console.log('made it through equal1');
         
         } else {
 
@@ -602,7 +608,7 @@ function removeOld(orderedResponse, callback){
 function bestMatch(toMatch, callback){
     var matches = stringSimilarity.findBestMatch(toMatch, speakers);
     var theBestMatch = toMatch; // just leave it as-is if we don't find anything
-    if(matches.bestMatch.rating > .8){
+    if(matches.bestMatch.rating >= .8){
         theBestMatch = matches.bestMatch.target
     } 
     console.log('the best match is ',theBestMatch);

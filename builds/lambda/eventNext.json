@@ -13,7 +13,8 @@
    "firstName": "Blanche P.",
    "lastName": "Alter",
    "sessionStartTime": "2017-12-31T07:00Z",
-   "sessionEndTime": "2017-12-27T23:00Z"
+   "sessionEndTime": "2017-12-27T23:00Z",
+   "combinedName": "blanche P. Alter"
  },
   {
    "sessionId": 11045,
@@ -24,7 +25,8 @@
    "firstName": "Blanche P.",
    "lastName": "Alter",
    "sessionStartTime": "2017-12-31T07:00Z",
-   "sessionEndTime": "2017-12-27T23:00Z"
+   "sessionEndTime": "2017-12-27T23:00Z",
+   "combinedName": "blanche P. Alter"
  }
 
  ]},
