@@ -125,7 +125,7 @@ exports.handler = function(event,context) {
 // *********************************************************************
 function getNext(searchResults,callback){
     console.log('search results length at getNext: ',searchResults.length);
-   if(searchResults){
+   if(searchResults != "none" && searchResults != "no more results to share"){
    
     if(searchResults.length > 0){
     searchResults.shift();
@@ -261,7 +261,9 @@ function buildResponse(options) {
 
 function handleNextIntent(response, context){
     let options = {};
-    //console.log('at handleNext', response);
+    //console.log(response);
+    // ******** check for no results
+    if (response != "none" && response != "no more results to share"){
     if(response){
         if(response.length > 1){
             //console.log('response length greater than 1');
@@ -313,6 +315,14 @@ function handleNextIntent(response, context){
         options.endSession = false;
         options.attributes = "no more results to share";
         context.succeed(buildResponse(options));
+    }
+    // This handles situation when search results = "none"
+    } else {
+        options.speechText = "I didn't catch that. You can ask me another question or just say stop.";
+        options.repromptText = "I didn't catch that. You can ask me another question or just say stop.";
+        options.endSession = false;
+        options.attributes = "no more results to share";
+        context.succeed(buildResponse(options));  
     }
 }
 // *********************************************************************
