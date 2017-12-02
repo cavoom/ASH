@@ -3,16 +3,30 @@
 var library = require('./recipe.js');
 var hotels = require('./hotels.js');
 var briefings = require('./briefing.json');
-
 var speakers = require('./speakers.json');
-
 var sessions = require('./sessions.json');
 var sessionsFound = 0; // this saves the number of sessions found in search
 var sessionsKept = 0; // tells you how many we are going to tell you about
 
 var stringSimilarity = require('string-similarity');
-
 const APP_ID = "amzn1.ask.skill.ae80c58c-95aa-4cd0-855e-6aa2b75ca800";
+
+var helperPhrase = [
+    "whens the general session",
+    "when does doctor catherine smith speak",
+    "whats going on today",
+    "find the next session about bone marrow failure",
+    "whats in the ash booth",
+    "where is the poster hall",
+    "where is the ash store",
+    "where is the general session",
+    "where do i find the shuttle busses",
+    "what bus goes to the ellis hotel",
+    "where are the taxis",
+    "what is going on today",
+    "what time does the poster hall open",
+    "where can i get some exercise at ash"
+];
 
 exports.handler = function(event,context) {
 
@@ -443,7 +457,8 @@ function handleSpeakerIntent(response, context){
 // *********************************************************************
 function handleLaunchRequest(context) {
     let options = {};
-        options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, when\'s the general session? ... Now, what can I help you with?";
+    var theRandom = Math.floor((Math.random() * 14));
+        options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, " + helperPhrase[theRandom] + " ... Now, what can I help you with?";
         options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
         options.endSession = false;
         options.attributes = "none";
