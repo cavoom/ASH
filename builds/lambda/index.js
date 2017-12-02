@@ -328,7 +328,7 @@ function handleNextIntent(response, context){
 // *********************************************************************
 
 function handleSessionIntent(response, context){
-    console.log('there are this many: '+ response.length);
+    //console.log('there are this many: '+ response.length);
     let options = {};
     let number = response.length;
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
