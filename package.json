@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsonfile": "^4.0.0"
+    "jsonfile": "^4.0.0",
+    "string-similarity": "^1.2.0"
   }
 }
