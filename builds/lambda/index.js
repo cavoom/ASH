@@ -406,7 +406,7 @@ function handleSpeakerIntent(response, context){
     theDay = theDay.getDay();
     theDay = daysOfWeek[theDay];
 
-            if(response.length>11){
+            if(response.length>10){
                 sessionsFound = response.length; // this is saved for the response feedback
                 var sliced = response.slice(0,10);
                 sessionsKept = sliced.length;
@@ -415,12 +415,19 @@ function handleSpeakerIntent(response, context){
                 options.endSession = false;
                 options.attributes = sliced;
                 context.succeed(buildResponse(options));
-            } else {
-                options.speechText = "I found " + number + " session where " + response[0].combinedName + " is speaking. Here is the session coming up next. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in " + response[0].sessionLocation + ". ";
+            } else if(response.length==1){
+                options.speechText = "I found " + number + " session where " + response[0].combinedName + " is speaking. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in " + response[0].sessionLocation + ". ";
                 options.repromptText = "You can ask me another question or exit by saying Stop.";
                 options.endSession = false;
                 options.attributes = response;
                 context.succeed(buildResponse(options)); 
+            } else if(response.length<=10 && response.length>1){
+                options.speechText = "I found " + number + " sessions where " + response[0].combinedName + " is speaking. On "+ theDay + " at "+response[0].startTime + " , " + response[0].sessionTitle + " is going on in " + response[0].sessionLocation + ". say next to hear another.";
+                options.repromptText = "You can ask me another question or exit by saying Stop.";
+                options.endSession = false;
+                options.attributes = response;
+                context.succeed(buildResponse(options)); 
+
             }
 
     } else {
