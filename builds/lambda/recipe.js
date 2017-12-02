@@ -171,7 +171,8 @@ var recipe = {
 'group registration open' : 'group registration in hall A 1 is open from 1:00 pm - 5:00 pm on wednesday, from 8:00 am - 7:00 pm on thursday, and from 7:00 am - 6:00 pm on friday and saturday.',
 'ash live remote session viewing areas' : 'seating areas located in ash central in hall B-1, building "B", level 1 of the gwcc and will enable attendees to experience sessions located in other areas without having to walk the long distance from one room to another. please note: not all sessions will be broadcast into the remote session viewing area.',
 '1st aid' : 'there are first aid offices in multiple locations in the convention center.  if you are having a medical emergency, please dial 4911 from a red courtesy phone location in the convention center or dial 404-223-4911 from your cell phone.  a response team member will be deployed immediately to your location.',
-'wifi' : 'wi-fi is available in public lobbies and meeting rooms at the georgia world congress center as well as meeting rooms and adjacent pre-function space at the omni atlanta hotel at cnn center. to access the internet, select the ash2017 network. no log-in or password is needed.',
+'first aid' : 'there are first aid offices in multiple locations in the convention center.  if you are having a medical emergency, please dial 4911 from a red courtesy phone location in the convention center or dial 404-223-4911 from your cell phone.  a response team member will be deployed immediately to your location.',
+'wifi' : 'wi-fi is available in public lobbies and meeting rooms at the georgia world congress center as well as meeting rooms and adjacent pre-function space at the omni atlanta hotel at cnn center. to access the internet, select the ash2017 network. no log-in or password is needed.'
 
 };
 
