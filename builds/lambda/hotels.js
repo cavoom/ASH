@@ -1090,35 +1090,67 @@
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "home2 suites by hilton atlanta downtown",
+   "hotelName": "home 2 suites by hilton atlanta downtown",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "home2 suites downtown atlanta",
+   "hotelName": "home 2 suites downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hilton home2 suites downtown atlanta",
+   "hotelName": "hilton home 2 suites downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "home2suites in downtown atlanta",
+   "hotelName": "home 2 suites in downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "hilton home2 suites in downtown atlanta",
+   "hotelName": "hilton home 2 suites in downtown atlanta",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
  {
-   "hotelName": "downtown atlanta home2 suites",
+   "hotelName": "downtown atlanta home 2 suites",
    "routeNumber": "2",
    "boardingLocation": "Outside Building A-B"
  },
+
+{
+   "hotelName": "home two suites by hilton atlanta downtown",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
+ {
+   "hotelName": "home two suites downtown atlanta",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
+ {
+   "hotelName": "hilton home two suites downtown atlanta",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
+ {
+   "hotelName": "home two suites in downtown atlanta",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
+ {
+   "hotelName": "hilton home two suites in downtown atlanta",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
+ {
+   "hotelName": "downtown atlanta home two suites",
+   "routeNumber": "2",
+   "boardingLocation": "Outside Building A-B"
+ },
+
  {
    "hotelName": "homewood suites atlanta buckhead",
    "routeNumber": "18",
