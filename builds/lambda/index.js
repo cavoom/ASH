@@ -58,7 +58,7 @@ exports.handler = function(event,context) {
     if(request.type === "LaunchRequest") {
         stationId = String(Math.floor((Math.random() * 999999999999)));
         saveIntent = "Launch Intent";
-        saveItem = "Null";
+        saveItem = "ask ash";
 
         analytics(stationId, saveIntent, saveItem, (stuff)=>{
             //console.log('the data: ', stuff);
@@ -98,18 +98,29 @@ exports.handler = function(event,context) {
                 });
 
         } else if (request.intent.name === "BriefingIntent"){
-                //let item = request.intent.slots.Briefing.value;
-                //let lowerItem = item.toLowerCase();
+            stationId = String(Math.floor((Math.random() * 999999999999)));
+            saveIntent = "Briefing Intent";
+            saveItem = "briefing";
+
+            analytics(stationId, saveIntent, saveItem, (stuff)=>{
+
                 findBriefing((response)=>{
                     //console.log('headed to the handle briefing intent yo');
                     handleBriefingIntent(response, context);
                 });
-
+            });
 
     } else if (request.intent.name === "SessionIntent"){
     
                 let item = request.intent.slots.Session.value;
                 item = item.toLowerCase();
+
+                stationId = String(Math.floor((Math.random() * 999999999999)));
+                saveIntent = "Session Intent";
+                saveItem = item;
+
+                analytics(stationId, saveIntent, saveItem, (stuff)=>{
+            
                 findSession(item, (searchResults)=>{
                     //console.log('i found '+searchResults.length+' sessions NOT sorted');
                     sortResult(searchResults,(orderedResponse)=>{
@@ -121,30 +132,48 @@ exports.handler = function(event,context) {
                     })
                    
                 });
+            });
 
     } else if (request.intent.name === "SpeakerIntent"){
     
                 let item = request.intent.slots.Speaker.value;
                 item = item.toLowerCase();
+
+                stationId = String(Math.floor((Math.random() * 999999999999)));
+                saveIntent = "Speaker Intent";
+                saveItem = item;
+
+                analytics(stationId, saveIntent, saveItem, (stuff)=>{
+
                 bestMatch(item,(theBestMatch)=>{
-                    console.log(theBestMatch);
+                    //onsole.log(theBestMatch);
                     findSpeaker(theBestMatch, (searchResults)=>{
                         sortResult(searchResults,(orderedResponse)=>{
                             handleSpeakerIntent(orderedResponse, context);
                         }) 
                     })
-                });              
+                });  
+
+                });            
                 
     } else if (request.intent.name === "NextIntent"){
         if(session.attributes){
         if(session.attributes.searchResults){
             let searchResults = session.attributes.searchResults;
-            //console.log('first one: ', searchResults[0]);
-            getNext(searchResults,(nextOne)=>{
-            handleNextIntent(nextOne, context);
-            })} else {
-            // HANDLE SITUATION WHEN SESSION.ATTRIBUTES.SEARCHRESULTS DOESN'T EXIST
-            }
+
+                stationId = String(Math.floor((Math.random() * 999999999999)));
+                saveIntent = "Next Intent";
+                saveItem = "next";
+
+                analytics(stationId, saveIntent, saveItem, (stuff)=>{
+                    getNext(searchResults,(nextOne)=>{
+                        handleNextIntent(nextOne, context);
+                        });
+                    });
+            
+        } else {
+                // HANDLE SITUATION WHEN SESSION.ATTRIBUTES.SEARCHRESULTS DOESN'T EXIST
+                }
 
         } else {
                 handleNextIntent(nextOne, context);
@@ -691,13 +720,16 @@ function bestMatch(toMatch, callback){
 
 // *********************************************************************
 function analytics(stationId, saveIntent, saveItem, callback){
-    console.log(stationId, saveIntent, saveItem);
+    //console.log(stationId, saveIntent, saveItem);
+    var theDate = new Date();
+    theDate = theDate.toString();
     params = {
         TableName:"ash",
         Item:{
             "stationId": stationId,
             "intent": saveIntent,
-            "item": saveItem
+            "item": saveItem,
+            "timeStamp": theDate
         }
     };
 
