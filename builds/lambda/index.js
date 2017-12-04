@@ -7,6 +7,9 @@ var speakers = require('./speakers.json');
 var sessions = require('./sessions.json');
 var sessionsFound = 0; // this saves the number of sessions found in search
 var sessionsKept = 0; // tells you how many we are going to tell you about
+var lowerItem = "";
+var sessionItem = "";
+var speakerItem = "";
 
 var stringSimilarity = require('string-similarity');
 const APP_ID = "amzn1.ask.skill.ae80c58c-95aa-4cd0-855e-6aa2b75ca800";
@@ -83,8 +86,11 @@ exports.handler = function(event,context) {
 
         } else if (request.intent.name === "HotelIntent"){
             
-                let item = request.intent.slots.Hotels.value;
-                let lowerItem = item.toLowerCase();
+                if(request.intent.slots.Hotels.value){
+                    let item = request.intent.slots.Hotels.value;
+                    lowerItem = item.toLowerCase(); } else {
+                        lowerItem = "unknown";
+                    }
                 saveItem = lowerItem;
                 saveIntent = "Hotel Intent";
                 stationId = String(Math.floor((Math.random() * 999999999999)));
@@ -111,17 +117,19 @@ exports.handler = function(event,context) {
             });
 
     } else if (request.intent.name === "SessionIntent"){
-    
-                let item = request.intent.slots.Session.value;
-                item = item.toLowerCase();
+            if(request.intent.slots.Session.value){
+                sessionItem = request.intent.slots.Session.value;
+                sessionItem = sessionItem.toLowerCase(); } else {
+                    sessionItem = "unknown";
+                }
 
                 stationId = String(Math.floor((Math.random() * 999999999999)));
                 saveIntent = "Session Intent";
-                saveItem = item;
+                saveItem = sessionItem;
 
                 analytics(stationId, saveIntent, saveItem, (stuff)=>{
             
-                findSession(item, (searchResults)=>{
+                findSession(sessionItem, (searchResults)=>{
                     //console.log('i found '+searchResults.length+' sessions NOT sorted');
                     sortResult(searchResults,(orderedResponse)=>{
                         //console.log('i found '+orderedResponse.length+' sessions SORTED ');
@@ -135,17 +143,19 @@ exports.handler = function(event,context) {
             });
 
     } else if (request.intent.name === "SpeakerIntent"){
-    
-                let item = request.intent.slots.Speaker.value;
-                item = item.toLowerCase();
+            if(request.intent.slots.Speaker.value){
+                speakerItem = request.intent.slots.Speaker.value;
+                speakerItem = speakerItem.toLowerCase(); } else {
+                    speakerItem = "unknown";
+                }
 
                 stationId = String(Math.floor((Math.random() * 999999999999)));
                 saveIntent = "Speaker Intent";
-                saveItem = item;
+                saveItem = speakerItem;
 
                 analytics(stationId, saveIntent, saveItem, (stuff)=>{
 
-                bestMatch(item,(theBestMatch)=>{
+                bestMatch(speakerItem,(theBestMatch)=>{
                     //onsole.log(theBestMatch);
                     findSpeaker(theBestMatch, (searchResults)=>{
                         sortResult(searchResults,(orderedResponse)=>{
