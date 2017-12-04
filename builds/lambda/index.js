@@ -28,6 +28,23 @@ var helperPhrase = [
     "where can i get some exercise at ash"
 ];
 
+var stuff = "nada";
+var AWS = require("aws-sdk");
+var saveIntent = "nada";
+var saveItem = "nada";
+var params = {};
+var stationId = "";
+var stuff = "nothing changed" // for test
+
+AWS.config.update({
+    region: "us-east-1",
+    endpoint: "https://dynamodb.us-east-1.amazonaws.com"
+    });
+
+    var docClient = new AWS.DynamoDB.DocumentClient();
+
+
+
 exports.handler = function(event,context) {
 
     try {
@@ -39,20 +56,45 @@ exports.handler = function(event,context) {
     }
 
     if(request.type === "LaunchRequest") {
-        console.log('going to handle launch request');
-        handleLaunchRequest(context);
+        stationId = String(Math.floor((Math.random() * 999999999999)));
+        saveIntent = "Launch Intent";
+        saveItem = "Null";
+
+        analytics(stationId, saveIntent, saveItem, (stuff)=>{
+            //console.log('the data: ', stuff);
+            handleLaunchRequest(context);
+            });
+            
 
     } else if(request.type === "IntentRequest") {
         
         if(request.intent.name == "RecipeIntent"){
-                handleRequestIntent(request, context)
+                stationId = String(Math.floor((Math.random() * 999999999999)));
+                saveIntent = "Recipe Intent";
+            
+                if(request.intent.slots.Item.value){
+                    saveItem = request.intent.slots.Item.value; } else {
+                        saveItem = "unknown";
+                    }
+
+            analytics(stationId, saveIntent, saveItem, (stuff)=>{
+                handleRequestIntent(request, context);
+            });
 
         } else if (request.intent.name === "HotelIntent"){
             
                 let item = request.intent.slots.Hotels.value;
                 let lowerItem = item.toLowerCase();
+                saveItem = lowerItem;
+                saveIntent = "Hotel Intent";
+                stationId = String(Math.floor((Math.random() * 999999999999)));
+
+            analytics(stationId, saveIntent, saveItem, (stuff)=>{
+                //console.log('the data: ', stuff);
+
                 findHotel(lowerItem, (response)=>{
                     handleHotelIntent(response, context);
+                    });
                 });
 
         } else if (request.intent.name === "BriefingIntent"){
@@ -645,4 +687,28 @@ function bestMatch(toMatch, callback){
     } 
     console.log('the best match is ',theBestMatch);
     callback(theBestMatch)
+}
+
+// *********************************************************************
+function analytics(stationId, saveIntent, saveItem, callback){
+    console.log(stationId, saveIntent, saveItem);
+    params = {
+        TableName:"ash",
+        Item:{
+            "stationId": stationId,
+            "intent": saveIntent,
+            "item": saveItem
+        }
+    };
+
+    docClient.put(params, function(err, data) {
+        if (err) {
+            callback(err);
+            //console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+                callback(data);
+                //console.log("Added item:", JSON.stringify(data, null, 2));
+            }
+        });
+
 }
