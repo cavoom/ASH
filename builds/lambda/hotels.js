@@ -19,6 +19,26 @@
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
+  {
+   "hotelName": "a c. hotel atlanta buckhead at phipps plaza",
+   "routeNumber": "15",
+   "boardingLocation": "Outside Building C"
+ },
+ {
+   "hotelName": "a c. hotel buckhead",
+   "routeNumber": "15",
+   "boardingLocation": "Outside Building C"
+ },
+ {
+   "hotelName": "a c. hotel phipps plaza",
+   "routeNumber": "15",
+   "boardingLocation": "Outside Building C"
+ },
+ {
+   "hotelName": "a c. hotel at phipps plaza",
+   "routeNumber": "15",
+   "boardingLocation": "Outside Building C"
+ },
  {
    "hotelName": "phipps plaza ac hotel",
    "routeNumber": "15",
@@ -26,6 +46,17 @@
  },
  {
    "hotelName": "buckhead ac hotel",
+   "routeNumber": "15",
+   "boardingLocation": "Outside Building C"
+ },
+
+  {
+   "hotelName": "bucket ac hotel",
+   "routeNumber": "15",
+   "boardingLocation": "Outside Building C"
+ },
+  {
+   "hotelName": "buckhead a c. hotel",
    "routeNumber": "15",
    "boardingLocation": "Outside Building C"
  },
@@ -94,13 +125,33 @@
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
+
+  {
+   "hotelName": "art more hotel",
+   "routeNumber": "6",
+   "boardingLocation": "Outside Building A-B"
+ },
+  {
+   "hotelName": "art war hotel",
+   "routeNumber": "6",
+   "boardingLocation": "Outside Building A-B"
+ },
  {
    "hotelName": "artmore",
    "routeNumber": "6",
    "boardingLocation": "Outside Building A-B"
  },
+  {
+   "hotelName": "art more hotel",
+   "routeNumber": "6",
+   "boardingLocation": "Outside Building A-B"
+ }, {
+   "hotelName": "art war hotel",
+   "routeNumber": "6",
+   "boardingLocation": "Outside Building A-B"
+ },
  {
-   "hotelName": "courtyard atlanta airport north/virginia avenue",
+   "hotelName": "courtyard atlanta airport north virginia avenue",
    "routeNumber": "19",
    "boardingLocation": "Outside Building C"
  },
@@ -545,12 +596,7 @@
    "boardingLocation": "Outside Building A-B"
  },
   {
-   "hotelName": "the ellis hotel",
-   "routeNumber": "4",
-   "boardingLocation": "Outside Building A-B"
- },
-  {
-   "hotelName": "the ellis",
+   "hotelName": "ellis hotel",
    "routeNumber": "4",
    "boardingLocation": "Outside Building A-B"
  },
@@ -740,12 +786,7 @@
    "boardingLocation": "Walk to hotel"
  },
  {
-   "hotelName": "the glenn hotel",
-   "routeNumber": "No Shuttle",
-   "boardingLocation": "Walk to hotel"
- },
- {
-   "hotelName": "the glenn",
+   "hotelName": "glenn hotel",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },
@@ -1823,11 +1864,6 @@
  },
  {
    "hotelName": "cnn center omni hotel",
-   "routeNumber": "No Shuttle",
-   "boardingLocation": "Walk to hotel"
- },
-  {
-   "hotelName": "the cnn center omni hotel",
    "routeNumber": "No Shuttle",
    "boardingLocation": "Walk to hotel"
  },

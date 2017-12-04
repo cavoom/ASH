@@ -92,6 +92,7 @@ exports.handler = function(event,context) {
                         lowerItem = "unknown";
                     }
                 saveItem = lowerItem;
+                console.log("hotel name$",lowerItem,"$$$");
                 saveIntent = "Hotel Intent";
                 stationId = String(Math.floor((Math.random() * 999999999999)));
 
@@ -646,9 +647,8 @@ function findHotel(item, callback){
     var i = 0;
 
 while (i<hotels.length){
-        
-    if (item == hotels[i].hotelName){
-        result = "The "+item+" is on bus route # "+hotels[i].routeNumber+". Your boarding location is "+hotels[i].boardingLocation;;
+    if (item == hotels[i].hotelName || item == "the "+hotels[i].hotelName){
+        result = item + " is on bus route # "+hotels[i].routeNumber+". Your boarding location is "+hotels[i].boardingLocation;;
         if(hotels[i].routeNumber == "No Shuttle"){
             result = "This hotel is in walking distance. There is no need to grab a shuttle. Enjoy the short walk!"
             }
