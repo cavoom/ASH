@@ -541,7 +541,8 @@ function handleLaunchRequest(context) {
     let options = {};
     var theRandom = Math.floor((Math.random() * 14));
         options.speechText = "Hi there. I\'m your ash Virtual Assistant, and I\'m here to help. You can ask a question like, " + helperPhrase[theRandom] + " ... Now, what can I help you with?";
-        options.repromptText = "You can ask questions such as, when does the exhibit hall open, or, you can say exit...Now, what can I help you with?";
+        theRandom = Math.floor((Math.random() * 14));
+        options.repromptText = "You can ask questions like, " + helperPhrase[theRandom] + ", or you can say stop.";
         options.endSession = false;
         options.attributes = "none";
         context.succeed(buildResponse(options));
