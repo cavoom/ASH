@@ -1,3 +1,5 @@
+// Migrated to FXP Git Repo - 12/5/2017 - !!!
+
 'use strict';
 
 var library = require('./recipe.js');
@@ -92,7 +94,7 @@ exports.handler = function(event,context) {
                         lowerItem = "unknown";
                     }
                 saveItem = lowerItem;
-                console.log("hotel name$",lowerItem,"$$$");
+                //console.log("hotel name$",lowerItem,"$$$");
                 saveIntent = "Hotel Intent";
                 stationId = String(Math.floor((Math.random() * 999999999999)));
 
@@ -183,11 +185,11 @@ exports.handler = function(event,context) {
                     });
             
         } else {
-                // HANDLE SITUATION WHEN SESSION.ATTRIBUTES.SEARCHRESULTS DOESN'T EXIST
+                handleThanksIntent(context); // handing the case where no next
                 }
 
-        } else {
-                handleNextIntent(nextOne, context);
+        } else { // handling case where session.attributes doesn't exist
+                handleThanksIntent(nextOne, context);
 
         }
 
@@ -221,6 +223,7 @@ exports.handler = function(event,context) {
 // *********************************************************************
 function getNext(searchResults,callback){
     console.log('search results length at getNext: ',searchResults.length);
+    if(searchResults){
    if(searchResults != "none" && searchResults != "no more results to share"){
    
     if(searchResults.length > 0){
@@ -228,6 +231,10 @@ function getNext(searchResults,callback){
     }
     callback(searchResults);
 } else {
+    callback(searchResults);
+}
+} else {
+    searchResults = "none";
     callback(searchResults);
 }
 }
@@ -258,11 +265,6 @@ function findSpeaker(item, callback){
     i++;
 
 }
-// ********** STOPPED HERE
-// Before you go to findSpeaker, do the bestMatch function and carry with you
-// IF searchResults.length = 0
-// use bestMatchResults
-// Just parallel it here so that you have a bestMatchResults Array to use
 
 callback(searchResults);
 
@@ -304,7 +306,7 @@ function findSession(item, callback){
     i++;
 
 }
-//console.log('made it thru');
+
 callback(searchResults);
 
 }
@@ -414,8 +416,8 @@ function handleNextIntent(response, context){
     }
     // This handles situation when search results = "none"
     } else {
-        options.speechText = "I didn't catch that. You can ask me another question or just say stop.";
-        options.repromptText = "I didn't catch that. You can ask me another question or just say stop.";
+        options.speechText = "I'm here to help. You can ask me another question or just say stop.";
+        options.repromptText = "I'm here to help. You can ask me another question or just say stop.";
         options.endSession = false;
         options.attributes = "no more results to share";
         context.succeed(buildResponse(options));  
@@ -555,6 +557,16 @@ function handleStopIntent(context){
                 options.speechText = "Goodbye";
                 options.repromptText = "";
                 options.endSession = true;
+                options.attributes = "none";
+                context.succeed(buildResponse(options));
+}
+
+// *********************************************************************
+function handleThanksIntent(context){
+            let options = {};    
+                options.speechText = "Happy to help. Ask me another question or say stop to exit.";
+                options.repromptText = "Anything else that I can help you with today?";
+                options.endSession = false;
                 options.attributes = "none";
                 context.succeed(buildResponse(options));
 }
@@ -725,7 +737,7 @@ function bestMatch(toMatch, callback){
     if(matches.bestMatch.rating >= .8){
         theBestMatch = matches.bestMatch.target
     } 
-    console.log('the best match is ',theBestMatch);
+    //console.log('the best match is ',theBestMatch);
     callback(theBestMatch)
 }
 
